@@ -1,0 +1,187 @@
+# .gitignore for BTC ML State Detection Project
+
+# ============================================================================
+# TRAINED MODEL FILES (Large binary files - don't commit!)
+# ============================================================================
+*.pkl
+*.h5
+*.pt
+*.pth
+*.onnx
+*.pb
+
+# ============================================================================
+# DATA FILES (Can be large, regenerate from source)
+# ============================================================================
+*.parquet
+*.csv
+*.json.gz
+*.feather
+combined_signals_log.csv
+historical_data/
+data/
+datasets/
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+btc_direction_predictor/venv/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# ============================================================================
+# LOGS & TEMPORARY FILES
+# ============================================================================
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+training_output.log
+*.prom.tmp
+
+# ============================================================================
+# PROMETHEUS METRICS (Generated at runtime)
+# ============================================================================
+/tmp/*.prom
+*.prom
+
+# ============================================================================
+# EXPERIMENTS & BACKUPS (Keep repo clean)
+# ============================================================================
+backup_*/
+experiments/
+old/
+archive/
+test_*.py
+debug_*.py
+scratch_*.py
+
+# ============================================================================
+# IDE / EDITOR FILES
+# ============================================================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vs/
+
+# ============================================================================
+# OS FILES
+# ============================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================================
+# SENSITIVE DATA (Never commit!)
+# ============================================================================
+.env
+.env.local
+secrets.json
+config.local.json
+api_keys.txt
+credentials.json
+
+# ============================================================================
+# WHAT TO COMMIT (Keep these!)
+# ============================================================================
+# ✅ Python source code (.py files)
+# ✅ Documentation (.md files)
+# ✅ Requirements (requirements.txt)
+# ✅ Configuration templates (config.example.json)
+# ✅ Small reference data (< 1MB)
+# ✅ Training scripts
+# ✅ Feature extractors
+# ✅ Prometheus metric writers
+
+# ============================================================================
+# SPECIAL RULES
+# ============================================================================
+
+# But DO commit these specific files (override above rules):
+!feature_names.json
+!config.json
+!README.md
+
+# Don't commit model weights, but keep the directory structure
+BTC_StateDetector_6L512_v1/*.pkl
+BTC_StateDetector_6L512_v1/__pycache__/
+
+# Keep small example data
+!example_data.csv
+
+# ============================================================================
+# PROJECT-SPECIFIC EXCLUSIONS
+# ============================================================================
+
+# Old experimental directories (already moved to backup)
+Runner-Ups/
+playground/
+predict_realtime/
+btc_mean_reversion/
+btc_ml_optimizer/
+btc_derivative_strategy/
+btc_deep_state_detector/
+btc_maximum_training/
+btc_lstm_ensemble/
+ai_trading_model/
+
+# Checkpoints
+*_checkpoint_*/
+
+# Large output files
+combined_signals_log.csv
+backtest_results.csv
+
