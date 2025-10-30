@@ -1,0 +1,41 @@
+{
+  "horizon": "8h",
+  "up_threshold": 1.5,
+  "down_threshold": 1.5,
+  "features": [
+    "job:crypto_last_price:deriv3d",
+    "job:crypto_last_price:deriv14d",
+    "job:crypto_last_price:deriv30d",
+    "job:crypto_last_price:deriv24h",
+    "job:crypto_last_price:deriv16h",
+    "job:crypto_last_price:deriv8h",
+    "job:crypto_last_price:deriv12h",
+    "job:crypto_last_price:deriv4h"
+  ],
+  "classes": [
+    "DOWN",
+    "SIDEWAYS",
+    "UP"
+  ],
+  "performance": {
+    "config_idx": 8,
+    "name": "8h_\u00b11.5%",
+    "horizon": "8h",
+    "up_threshold": 1.5,
+    "down_threshold": 1.5,
+    "samples": 48118,
+    "samples_pct": 0.9980916822236051,
+    "up_pct": 0.10574005569641298,
+    "sideways_pct": 0.8035870152541669,
+    "down_pct": 0.09067292904942018,
+    "overall_accuracy": 0.7591969073450555,
+    "down_accuracy": 0.02457921453379642,
+    "sideways_accuracy": 0.9442343159013472,
+    "up_accuracy": 0.03233203393717037,
+    "directional_accuracy": 0.5104620749782041,
+    "directional_signals_pct": 0.05721411647337573,
+    "balanced_score": 0.6099560079249446
+  },
+  "trained_at": "2025-10-19T00:21:17.922679",
+  "training_samples": 48118
+}

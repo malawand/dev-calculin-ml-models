@@ -1,0 +1,15 @@
+Bitcoin State Detector - Version History
+
+v1.0 (October 23, 2025)
+- Initial production release
+- 6-layer neural network (sklearn)
+- 95.3% direction accuracy
+- 0.951 strength correlation
+- 22 features
+- Trained on 2.5 years of data (Jan 2023 - Jun 2025)
+- Real-time inference < 1ms
+- Probability distribution output
+- Lean indicator for sideways markets
+- Comprehensive documentation
+- Production-ready code
+

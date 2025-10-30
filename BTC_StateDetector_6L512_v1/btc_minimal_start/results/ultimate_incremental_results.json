@@ -1,0 +1,18 @@
+{
+  "test_date": "2025-10-18T17:20:35.218805",
+  "horizon": "24h",
+  "best_accuracy": 0.5267913962072037,
+  "n_features": 3,
+  "features": [
+    "job:crypto_last_price:avg24h",
+    "job:crypto_last_price:avg48h",
+    "job:crypto_last_price:avg3d"
+  ],
+  "history": [],
+  "iterations": 0,
+  "starting_features": [
+    "job:crypto_last_price:avg24h",
+    "job:crypto_last_price:avg48h",
+    "job:crypto_last_price:avg3d"
+  ]
+}

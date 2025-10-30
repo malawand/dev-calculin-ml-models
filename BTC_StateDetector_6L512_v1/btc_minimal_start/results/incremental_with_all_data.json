@@ -1,0 +1,43 @@
+{
+  "horizon": "24h",
+  "total_samples": 39057,
+  "total_features_available": 685,
+  "price_features_available": 504,
+  "volume_features_available": 183,
+  "best_num_features": 5,
+  "best_accuracy": 0.5064004096262161,
+  "volume_features_in_model": 3,
+  "best_features": [
+    "crypto_volume",
+    "job:crypto_volume:avg1h",
+    "job:crypto_volume:deriv1h",
+    "volatility_24",
+    "job:crypto_last_price:avg4h"
+  ],
+  "training_history": [
+    {
+      "iteration": 0,
+      "features": [
+        "crypto_volume",
+        "job:crypto_volume:avg1h",
+        "job:crypto_volume:deriv1h",
+        "volatility_24"
+      ],
+      "num_features": 4,
+      "accuracy": 0.4603174603174603
+    },
+    {
+      "iteration": 1,
+      "features": [
+        "crypto_volume",
+        "job:crypto_volume:avg1h",
+        "job:crypto_volume:deriv1h",
+        "volatility_24",
+        "job:crypto_last_price:avg4h"
+      ],
+      "num_features": 5,
+      "accuracy": 0.5064004096262161,
+      "added_feature": "job:crypto_last_price:avg4h"
+    }
+  ]
+}

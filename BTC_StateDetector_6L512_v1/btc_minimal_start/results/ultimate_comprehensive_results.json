@@ -1,0 +1,2582 @@
+{
+  "start_time": "2025-10-18T20:01:39.944687",
+  "end_time": "2025-10-18T20:03:17.024991",
+  "total_experiments": 117,
+  "best_config": {
+    "experiment_num": 27,
+    "horizon": "4h",
+    "threshold_pct": 2.0,
+    "feature_set_name": "1_derivatives_only",
+    "available_features": 20,
+    "used_features": 8,
+    "accuracy": 0.6484962406015038,
+    "samples": 2657,
+    "up_ratio": 0.5144900263455024,
+    "best_features": [
+      "job:crypto_last_price:deriv30d",
+      "job:crypto_last_price:deriv8h",
+      "job:crypto_last_price:deriv12h",
+      "job:crypto_last_price:deriv16h",
+      "job:crypto_last_price:deriv14d",
+      "job:crypto_last_price:deriv4h",
+      "job:crypto_last_price:deriv24h",
+      "job:crypto_last_price:deriv3d"
+    ]
+  },
+  "top_20": [
+    {
+      "experiment_num": 27,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 8,
+      "accuracy": 0.6484962406015038,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv3d"
+      ]
+    },
+    {
+      "experiment_num": 110,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 7,
+      "accuracy": 0.6444954128440367,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 113,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 7,
+      "accuracy": 0.6444954128440367,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 105,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 5,
+      "accuracy": 0.6272935779816514,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv3d",
+        "job:crypto_last_price:deriv5d"
+      ]
+    },
+    {
+      "experiment_num": 32,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 7,
+      "accuracy": 0.5977443609022557,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 70,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5916230366492147,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "crypto_volume",
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 76,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.5916230366492147,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "crypto_volume",
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 29,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.5864661654135338,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime2h",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv24h_prime1h"
+      ]
+    },
+    {
+      "experiment_num": 35,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.5864661654135338,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime2h",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv24h_prime1h"
+      ]
+    },
+    {
+      "experiment_num": 68,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 9,
+      "accuracy": 0.5698080279232112,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv6d_prime6d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv48h_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 109,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5682339449541285,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg15m",
+        "crypto_volume"
+      ]
+    },
+    {
+      "experiment_num": 115,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.5682339449541285,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg15m",
+        "crypto_volume"
+      ]
+    },
+    {
+      "experiment_num": 14,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 6,
+      "accuracy": 0.5673491379310345,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv24h"
+      ]
+    },
+    {
+      "experiment_num": 66,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 6,
+      "accuracy": 0.5654450261780105,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv3d",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv4h"
+      ]
+    },
+    {
+      "experiment_num": 30,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 34,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 36,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 39,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 67,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 6,
+      "accuracy": 0.5488656195462478,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv6d_prime6d",
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv48h_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 52,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 6,
+      "accuracy": 0.5471893797967227,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d"
+      ]
+    }
+  ],
+  "all_results": [
+    {
+      "experiment_num": 27,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 8,
+      "accuracy": 0.6484962406015038,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv3d"
+      ]
+    },
+    {
+      "experiment_num": 110,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 7,
+      "accuracy": 0.6444954128440367,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 113,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 7,
+      "accuracy": 0.6444954128440367,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 105,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 5,
+      "accuracy": 0.6272935779816514,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv3d",
+        "job:crypto_last_price:deriv5d"
+      ]
+    },
+    {
+      "experiment_num": 32,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 7,
+      "accuracy": 0.5977443609022557,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 70,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5916230366492147,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "crypto_volume",
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 76,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.5916230366492147,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "crypto_volume",
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 29,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.5864661654135338,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime2h",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv24h_prime1h"
+      ]
+    },
+    {
+      "experiment_num": 35,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.5864661654135338,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime2h",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv24h_prime1h"
+      ]
+    },
+    {
+      "experiment_num": 68,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 9,
+      "accuracy": 0.5698080279232112,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv6d_prime6d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv48h_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 109,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5682339449541285,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg15m",
+        "crypto_volume"
+      ]
+    },
+    {
+      "experiment_num": 115,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.5682339449541285,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg15m",
+        "crypto_volume"
+      ]
+    },
+    {
+      "experiment_num": 14,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 6,
+      "accuracy": 0.5673491379310345,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv24h"
+      ]
+    },
+    {
+      "experiment_num": 66,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 6,
+      "accuracy": 0.5654450261780105,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv3d",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv4h"
+      ]
+    },
+    {
+      "experiment_num": 30,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 34,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 36,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 39,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 5,
+      "accuracy": 0.5639097744360902,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 67,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 6,
+      "accuracy": 0.5488656195462478,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv6d_prime6d",
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv48h_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 52,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 6,
+      "accuracy": 0.5471893797967227,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d"
+      ]
+    },
+    {
+      "experiment_num": 19,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 5,
+      "accuracy": 0.5463362068965517,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv30d"
+      ]
+    },
+    {
+      "experiment_num": 22,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.5463362068965517,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv30d"
+      ]
+    },
+    {
+      "experiment_num": 58,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 5,
+      "accuracy": 0.54563044179297,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 61,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.54563044179297,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 106,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 6,
+      "accuracy": 0.5389908256880734,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv48h_prime16h",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv14d_prime14d",
+        "job:crypto_last_price:deriv5d_prime5d"
+      ]
+    },
+    {
+      "experiment_num": 53,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 7,
+      "accuracy": 0.5369235730409545,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv16h",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv48h",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv2h"
+      ]
+    },
+    {
+      "experiment_num": 71,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 5,
+      "accuracy": 0.5340314136125655,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 74,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.5340314136125655,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 28,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 8,
+      "accuracy": 0.5300751879699248,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime2h",
+        "job:crypto_last_price:deriv5d_prime5d",
+        "job:crypto_last_price:deriv24h_prime1h",
+        "job:crypto_last_price:deriv6d_prime6d",
+        "job:crypto_last_price:deriv24h_prime30m",
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv16h_prime8h",
+        "job:crypto_last_price:deriv24h_prime48h"
+      ]
+    },
+    {
+      "experiment_num": 44,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 6,
+      "accuracy": 0.5268616469612114,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:deriv3d"
+      ]
+    },
+    {
+      "experiment_num": 50,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 6,
+      "accuracy": 0.5268616469612114,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:deriv3d"
+      ]
+    },
+    {
+      "experiment_num": 80,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 5,
+      "accuracy": 0.5265505081933209,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_last_price:deriv16h_prime8h",
+        "job:crypto_last_price:deriv16h_prime12h",
+        "job:crypto_last_price:deriv16h_prime4h",
+        "job:crypto_last_price:deriv4h_prime2h",
+        "job:crypto_last_price:deriv48h_prime1h"
+      ]
+    },
+    {
+      "experiment_num": 5,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.5263430823480606,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 11,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.5263430823480606,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 41,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 7,
+      "accuracy": 0.5185646131507986,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:deriv16h_prime8h",
+        "job:crypto_last_price:deriv16h_prime12h",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_last_price:deriv4h_prime2h",
+        "job:crypto_last_price:deriv16h_prime4h",
+        "job:crypto_last_price:deriv16h_prime24h"
+      ]
+    },
+    {
+      "experiment_num": 78,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 7,
+      "accuracy": 0.518324607329843,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d",
+        "job:crypto_volume:deriv6d"
+      ]
+    },
+    {
+      "experiment_num": 13,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 5,
+      "accuracy": 0.5169052063887161,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 97,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 6,
+      "accuracy": 0.515687250996016,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 100,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 6,
+      "accuracy": 0.515687250996016,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 6,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 5,
+      "accuracy": 0.5126529765608795,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:deriv24h"
+      ]
+    },
+    {
+      "experiment_num": 9,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.5126529765608795,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_last_price:deriv24h"
+      ]
+    },
+    {
+      "experiment_num": 1,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 5,
+      "accuracy": 0.5096453018046049,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv15m",
+        "job:crypto_last_price:deriv48h",
+        "job:crypto_last_price:deriv30m"
+      ]
+    },
+    {
+      "experiment_num": 3,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.5086081725783033,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv15m",
+        "job:crypto_last_price:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 81,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.5085044596556731,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv16h_prime8h",
+        "job:crypto_last_price:deriv16h_prime12h",
+        "job:crypto_last_price:deriv16h_prime4h"
+      ]
+    },
+    {
+      "experiment_num": 2,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 5,
+      "accuracy": 0.5069487658162207,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_last_price:deriv16h_prime24h",
+        "job:crypto_last_price:deriv24h_prime12h",
+        "job:crypto_last_price:deriv24h_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 45,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 5,
+      "accuracy": 0.5069487658162207,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 48,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 5,
+      "accuracy": 0.5069487658162207,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 98,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 5,
+      "accuracy": 0.5062250996015937,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg3d",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg12h",
+        "job:crypto_volume:avg8h"
+      ]
+    },
+    {
+      "experiment_num": 40,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 5,
+      "accuracy": 0.5059116365899191,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv15m",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv30m"
+      ]
+    },
+    {
+      "experiment_num": 4,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 5,
+      "accuracy": 0.505185646131508,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 8,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.505185646131508,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 10,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.505185646131508,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 84,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "6_derivatives_plus_volume",
+      "available_features": 38,
+      "used_features": 6,
+      "accuracy": 0.5046670815183572,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 87,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "9_all_derivatives_family",
+      "available_features": 98,
+      "used_features": 6,
+      "accuracy": 0.5046670815183572,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:deriv14d"
+      ]
+    },
+    {
+      "experiment_num": 26,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 7,
+      "accuracy": 0.5043103448275862,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 46,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 6,
+      "accuracy": 0.5029039618336445,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_volume:avg3d",
+        "job:crypto_last_price:deriv16h_prime8h",
+        "job:crypto_last_price:deriv16h_prime12h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg12h"
+      ]
+    },
+    {
+      "experiment_num": 51,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.502592823065754,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:deriv15m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg10m",
+        "job:crypto_volume:avg45m",
+        "job:crypto_volume:avg15m"
+      ]
+    },
+    {
+      "experiment_num": 12,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 6,
+      "accuracy": 0.5020742584526032,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv15m",
+        "job:crypto_last_price:deriv30m",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_last_price:deriv10m",
+        "job:crypto_last_price:deriv12h"
+      ]
+    },
+    {
+      "experiment_num": 16,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.5010775862068966,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv30d_prime30d"
+      ]
+    },
+    {
+      "experiment_num": 111,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 9,
+      "accuracy": 0.49713302752293576,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg45m",
+        "job:crypto_volume:avg1h",
+        "job:crypto_volume:avg2h",
+        "job:crypto_volume:avg4h",
+        "job:crypto_volume:avg8h"
+      ]
+    },
+    {
+      "experiment_num": 79,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 5,
+      "accuracy": 0.49626633478531423,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv7d",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 64,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 6,
+      "accuracy": 0.4956465656239923,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg45m",
+        "job:crypto_last_price:deriv4h"
+      ]
+    },
+    {
+      "experiment_num": 42,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.4953329184816428,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv16h_prime8h",
+        "job:crypto_last_price:deriv16h_prime12h",
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv30d"
+      ]
+    },
+    {
+      "experiment_num": 86,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 8,
+      "accuracy": 0.4946069280232317,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d",
+        "job:crypto_last_price:deriv30d"
+      ]
+    },
+    {
+      "experiment_num": 88,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 8,
+      "accuracy": 0.4946069280232317,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d",
+        "job:crypto_last_price:deriv30d"
+      ]
+    },
+    {
+      "experiment_num": 107,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 6,
+      "accuracy": 0.49369266055045874,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv48h_prime16h",
+        "job:crypto_last_price:deriv24h_prime48h"
+      ]
+    },
+    {
+      "experiment_num": 82,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 6,
+      "accuracy": 0.49128811449906656,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d"
+      ]
+    },
+    {
+      "experiment_num": 17,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 5,
+      "accuracy": 0.49084051724137934,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 21,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.49084051724137934,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 23,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.49084051724137934,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 102,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 7,
+      "accuracy": 0.49078685258964144,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:rate12h"
+      ]
+    },
+    {
+      "experiment_num": 104,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 7,
+      "accuracy": 0.49078685258964144,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:rate12h"
+      ]
+    },
+    {
+      "experiment_num": 96,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 6,
+      "accuracy": 0.49028884462151395,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg16h"
+      ]
+    },
+    {
+      "experiment_num": 43,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 5,
+      "accuracy": 0.4883841526654221,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 47,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.4883841526654221,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 49,
+      "horizon": "8h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.4883841526654221,
+      "samples": 48210,
+      "up_ratio": 0.5166148102053516,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 90,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.4874507363617507,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg45m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 83,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.4854801908317776,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 89,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.4854801908317776,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 91,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 5,
+      "accuracy": 0.4854801908317776,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv4d",
+        "job:crypto_volume:deriv48h"
+      ]
+    },
+    {
+      "experiment_num": 92,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "1_derivatives_only",
+      "available_features": 20,
+      "used_features": 5,
+      "accuracy": 0.48530876494023906,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv1h",
+        "job:crypto_last_price:deriv12h",
+        "job:crypto_last_price:deriv45m"
+      ]
+    },
+    {
+      "experiment_num": 103,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.48406374501992033,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg45m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 18,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.4838362068965517,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg16h"
+      ]
+    },
+    {
+      "experiment_num": 24,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.4838362068965517,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg16h"
+      ]
+    },
+    {
+      "experiment_num": 85,
+      "horizon": "12h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 5,
+      "accuracy": 0.4837170711470649,
+      "samples": 48210,
+      "up_ratio": 0.5167185231279817,
+      "best_features": [
+        "job:crypto_volume:avg3d",
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg12h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg4d"
+      ]
+    },
+    {
+      "experiment_num": 38,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.4830827067669173,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_last_price:avg24h",
+        "job:crypto_last_price:avg12h",
+        "job:crypto_last_price:avg8h",
+        "job:crypto_last_price:avg4h",
+        "job:crypto_last_price:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 7,
+      "horizon": "4h",
+      "threshold_pct": 0.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 6,
+      "accuracy": 0.4796722671644887,
+      "samples": 48210,
+      "up_ratio": 0.5119062435179423,
+      "best_features": [
+        "job:crypto_last_price:deriv48h_prime24h",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_volume:avg3d",
+        "job:crypto_last_price:deriv16h_prime24h",
+        "job:crypto_last_price:deriv24h_prime12h",
+        "job:crypto_last_price:deriv24h_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 72,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 5,
+      "accuracy": 0.47731239092495636,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg45m"
+      ]
+    },
+    {
+      "experiment_num": 77,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.47731239092495636,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg45m"
+      ]
+    },
+    {
+      "experiment_num": 95,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 6,
+      "accuracy": 0.47684262948207173,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d"
+      ]
+    },
+    {
+      "experiment_num": 57,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.4766204450177362,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg16h"
+      ]
+    },
+    {
+      "experiment_num": 63,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.4766204450177362,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg16h"
+      ]
+    },
+    {
+      "experiment_num": 65,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 5,
+      "accuracy": 0.4766204450177362,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv7d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_volume:avg16h"
+      ]
+    },
+    {
+      "experiment_num": 69,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 7,
+      "accuracy": 0.47294938917975565,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d",
+        "job:crypto_last_price:avg12h"
+      ]
+    },
+    {
+      "experiment_num": 73,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 7,
+      "accuracy": 0.47294938917975565,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d",
+        "job:crypto_last_price:avg12h"
+      ]
+    },
+    {
+      "experiment_num": 75,
+      "horizon": "8h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 7,
+      "accuracy": 0.47294938917975565,
+      "samples": 5729,
+      "up_ratio": 0.5400593471810089,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d",
+        "job:crypto_last_price:avg12h"
+      ]
+    },
+    {
+      "experiment_num": 25,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.4709051724137931,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:avg24h",
+        "job:crypto_last_price:avg8h",
+        "job:crypto_last_price:avg4h",
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m"
+      ]
+    },
+    {
+      "experiment_num": 15,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 6,
+      "accuracy": 0.4698275862068966,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv48h_prime48h",
+        "job:crypto_last_price:deriv14d_prime14d",
+        "job:crypto_last_price:deriv4d_prime4d",
+        "job:crypto_last_price:deriv16h_prime24h"
+      ]
+    },
+    {
+      "experiment_num": 56,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 6,
+      "accuracy": 0.46823605288616577,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg14d"
+      ]
+    },
+    {
+      "experiment_num": 93,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 7,
+      "accuracy": 0.4624003984063745,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv14d_prime14d",
+        "job:crypto_last_price:deriv3d_prime16h",
+        "job:crypto_last_price:deriv3d_prime24h",
+        "job:crypto_last_price:deriv3d_prime12h",
+        "job:crypto_last_price:deriv3d_prime30m",
+        "job:crypto_last_price:deriv3d_prime1h"
+      ]
+    },
+    {
+      "experiment_num": 60,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 6,
+      "accuracy": 0.45694937117059015,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg7d"
+      ]
+    },
+    {
+      "experiment_num": 59,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 5,
+      "accuracy": 0.4511447920025798,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg12h",
+        "job:crypto_volume:avg8h",
+        "job:crypto_volume:avg15m"
+      ]
+    },
+    {
+      "experiment_num": 116,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "12_balanced_mix",
+      "available_features": 40,
+      "used_features": 5,
+      "accuracy": 0.44839449541284404,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m",
+        "job:crypto_volume:avg30m",
+        "job:crypto_volume:avg45m"
+      ]
+    },
+    {
+      "experiment_num": 20,
+      "horizon": "4h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 5,
+      "accuracy": 0.44719827586206895,
+      "samples": 9277,
+      "up_ratio": 0.5289425460817074,
+      "best_features": [
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg12h",
+        "job:crypto_volume:avg8h",
+        "job:crypto_volume:avg15m"
+      ]
+    },
+    {
+      "experiment_num": 94,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.44671314741035856,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d_prime14d",
+        "job:crypto_last_price:deriv3d_prime16h"
+      ]
+    },
+    {
+      "experiment_num": 62,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.4434053531118994,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg5d"
+      ]
+    },
+    {
+      "experiment_num": 55,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "3_derivatives_plus_primes",
+      "available_features": 80,
+      "used_features": 5,
+      "accuracy": 0.4382457271847791,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv30d",
+        "job:crypto_last_price:deriv14d_prime14d"
+      ]
+    },
+    {
+      "experiment_num": 33,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "7_primes_plus_volume",
+      "available_features": 78,
+      "used_features": 5,
+      "accuracy": 0.43796992481203006,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg15m",
+        "job:crypto_volume:avg5m",
+        "job:crypto_volume:avg10m"
+      ]
+    },
+    {
+      "experiment_num": 31,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "5_volume_only",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.43045112781954886,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg15m",
+        "crypto_volume",
+        "job:crypto_volume:avg5m"
+      ]
+    },
+    {
+      "experiment_num": 37,
+      "horizon": "4h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "11_all_volume_metrics",
+      "available_features": 55,
+      "used_features": 5,
+      "accuracy": 0.43045112781954886,
+      "samples": 2657,
+      "up_ratio": 0.5144900263455024,
+      "best_features": [
+        "job:crypto_volume:avg16h",
+        "job:crypto_volume:avg24h",
+        "job:crypto_volume:avg15m",
+        "crypto_volume",
+        "job:crypto_volume:avg5m"
+      ]
+    },
+    {
+      "experiment_num": 108,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "4_averages_only",
+      "available_features": 17,
+      "used_features": 5,
+      "accuracy": 0.42775229357798167,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 112,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.42775229357798167,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 114,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.42775229357798167,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:avg7d",
+        "job:crypto_last_price:avg3d"
+      ]
+    },
+    {
+      "experiment_num": 54,
+      "horizon": "8h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "2_derivative_primes_only",
+      "available_features": 60,
+      "used_features": 6,
+      "accuracy": 0.4153498871331828,
+      "samples": 15505,
+      "up_ratio": 0.5304740406320542,
+      "best_features": [
+        "job:crypto_last_price:deriv24h_prime48h",
+        "job:crypto_last_price:deriv30d_prime30d",
+        "job:crypto_last_price:deriv14d_prime14d",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_last_price:deriv16h_prime16h",
+        "job:crypto_last_price:deriv48h_prime12h"
+      ]
+    },
+    {
+      "experiment_num": 99,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "8_averages_plus_derivatives",
+      "available_features": 37,
+      "used_features": 5,
+      "accuracy": 0.4123505976095618,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d"
+      ]
+    },
+    {
+      "experiment_num": 101,
+      "horizon": "12h",
+      "threshold_pct": 1.0,
+      "feature_set_name": "10_all_price_metrics",
+      "available_features": 97,
+      "used_features": 5,
+      "accuracy": 0.4123505976095618,
+      "samples": 20076,
+      "up_ratio": 0.5305837816298067,
+      "best_features": [
+        "job:crypto_last_price:avg3d",
+        "job:crypto_last_price:avg4d",
+        "job:crypto_last_price:deriv14d",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d"
+      ]
+    },
+    {
+      "experiment_num": 117,
+      "horizon": "12h",
+      "threshold_pct": 2.0,
+      "feature_set_name": "13_everything",
+      "available_features": 153,
+      "used_features": 5,
+      "accuracy": 0.39908256880733944,
+      "samples": 8720,
+      "up_ratio": 0.5573394495412844,
+      "best_features": [
+        "job:crypto_volume:deriv6d",
+        "job:crypto_volume:deriv5d",
+        "job:crypto_volume:deriv48h",
+        "job:crypto_last_price:avg5d",
+        "job:crypto_last_price:avg6d"
+      ]
+    }
+  ]
+}

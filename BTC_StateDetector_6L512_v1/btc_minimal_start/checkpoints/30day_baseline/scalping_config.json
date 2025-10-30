@@ -1,0 +1,38 @@
+{
+  "horizon": "30min",
+  "threshold": 0.25,
+  "features": [
+    "crypto_last_price",
+    "job:crypto_last_price:deriv5m",
+    "job:crypto_last_price:deriv10m",
+    "job:crypto_last_price:deriv15m",
+    "job:crypto_last_price:deriv30m",
+    "job:crypto_last_price:avg5m",
+    "job:crypto_last_price:avg10m",
+    "job:crypto_last_price:avg15m",
+    "crypto_volume",
+    "job:crypto_volume:deriv5m",
+    "job:crypto_volume:avg5m"
+  ],
+  "classes": [
+    "DOWN",
+    "SIDEWAYS",
+    "UP"
+  ],
+  "performance": {
+    "name": "30min_\u00b10.25%",
+    "horizon": "30min",
+    "threshold": 0.25,
+    "samples": 43171,
+    "overall_accuracy": 0.6155663655316191,
+    "directional_accuracy": 0.22673785138374372,
+    "directional_signals_pct": 0.2551216122307158,
+    "high_conf_accuracy": 0.7051295896328293,
+    "high_conf_pct": 0.5148019457956915,
+    "balanced_score": 0.4390647532779235,
+    "down_acc": 0.026074259491030455,
+    "sideways_acc": 0.7774282790768181,
+    "up_acc": 0.3141426783479349
+  },
+  "trained_at": "2025-10-19T01:50:58.742517"
+}

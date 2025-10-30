@@ -1,0 +1,69 @@
+# Bitcoin Volume Metrics from Cortex
+# Discovered: 55 metrics total
+# Pattern: job:crypto_volume:*
+
+# Raw spot volume
+crypto_volume
+
+# Volume Averages (Moving averages of volume)
+job:crypto_volume:avg5m
+job:crypto_volume:avg10m
+job:crypto_volume:avg15m
+job:crypto_volume:avg30m
+job:crypto_volume:avg45m
+job:crypto_volume:avg1h
+job:crypto_volume:avg2h
+job:crypto_volume:avg4h
+job:crypto_volume:avg8h
+job:crypto_volume:avg12h
+job:crypto_volume:avg16h
+job:crypto_volume:avg24h
+job:crypto_volume:avg48h
+job:crypto_volume:avg3d
+job:crypto_volume:avg4d
+job:crypto_volume:avg5d
+job:crypto_volume:avg6d
+job:crypto_volume:avg7d
+
+# Volume Derivatives (Rate of change of volume)
+job:crypto_volume:deriv5m
+job:crypto_volume:deriv10m
+job:crypto_volume:deriv15m
+job:crypto_volume:deriv30m
+job:crypto_volume:deriv45m
+job:crypto_volume:deriv1h
+job:crypto_volume:deriv2h
+job:crypto_volume:deriv4h
+job:crypto_volume:deriv8h
+job:crypto_volume:deriv12h
+job:crypto_volume:deriv16h
+job:crypto_volume:deriv24h
+job:crypto_volume:deriv48h
+job:crypto_volume:deriv3d
+job:crypto_volume:deriv4d
+job:crypto_volume:deriv5d
+job:crypto_volume:deriv6d
+job:crypto_volume:deriv7d
+
+# Volume Rates (Rate of change per time unit)
+job:crypto_volume:rate5m
+job:crypto_volume:rate10m
+job:crypto_volume:rate15m
+job:crypto_volume:rate30m
+job:crypto_volume:rate45m
+job:crypto_volume:rate1h
+job:crypto_volume:rate2h
+job:crypto_volume:rate4h
+job:crypto_volume:rate8h
+job:crypto_volume:rate12h
+job:crypto_volume:rate16h
+job:crypto_volume:rate24h
+job:crypto_volume:rate48h
+job:crypto_volume:rate3d
+job:crypto_volume:rate4d
+job:crypto_volume:rate5d
+job:crypto_volume:rate6d
+job:crypto_volume:rate7d
+
+
+

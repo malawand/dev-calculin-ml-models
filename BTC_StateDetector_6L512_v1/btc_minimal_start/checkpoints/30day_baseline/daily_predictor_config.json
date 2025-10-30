@@ -1,0 +1,40 @@
+{
+  "horizon": "24h",
+  "up_threshold": 3.0,
+  "down_threshold": 3.0,
+  "features": [
+    "job:crypto_last_price:deriv3d",
+    "job:crypto_last_price:deriv14d",
+    "job:crypto_last_price:deriv30d",
+    "job:crypto_last_price:deriv24h",
+    "job:crypto_last_price:deriv16h",
+    "job:crypto_last_price:deriv8h",
+    "job:crypto_last_price:deriv12h",
+    "job:crypto_last_price:deriv4h"
+  ],
+  "classes": [
+    "DOWN",
+    "SIDEWAYS",
+    "UP"
+  ],
+  "performance": {
+    "name": "\u00b13.0%",
+    "up_threshold": 3.0,
+    "down_threshold": 3.0,
+    "samples": 48113,
+    "up_pct": 0.10396358572527176,
+    "sideways_pct": 0.818302745619687,
+    "down_pct": 0.07773366865504126,
+    "overall_accuracy": 0.7132451983038164,
+    "down_accuracy": 0.05482526450785508,
+    "sideways_accuracy": 0.8601355703462872,
+    "up_accuracy": 0.08699633699633699,
+    "directional_accuracy": 0.6666089366124004,
+    "directional_signals_pct": 0.1440259416313295,
+    "balanced_score": 0.6852634412889668,
+    "predictions_csv": "/Users/mazenlawand/Documents/Caculin ML/btc_minimal_start/results/daily_predictions/predictions_24h_pm3.0%.csv",
+    "daily_csv": "/Users/mazenlawand/Documents/Caculin ML/btc_minimal_start/results/daily_predictions/daily_summary_24h_pm3.0%.csv"
+  },
+  "trained_at": "2025-10-19T00:29:26.673235",
+  "training_samples": 48113
+}

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  btc-predictor-exporter:
+    build: .
+    container_name: btc-prediction-exporter
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
+    environment:
+      - TZ=UTC
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./models:/app/models:ro
+      - ./results:/app/results:ro
+      - ./predictions.log:/app/predictions.log
+    networks:
+      - monitoring
+    labels:
+      - "prometheus.io/scrape=true"
+      - "prometheus.io/port=9100"
+      - "prometheus.io/path=/metrics"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9100/metrics"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  monitoring:
+    driver: bridge
+
+
+

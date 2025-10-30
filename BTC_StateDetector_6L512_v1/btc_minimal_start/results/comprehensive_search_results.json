@@ -1,0 +1,71 @@
+{
+  "test_date": "2025-10-18T11:05:08.455067",
+  "horizon": "24h",
+  "total_tests": 4,
+  "results": [
+    {
+      "name": "mixed_3",
+      "starting_features": [
+        "deriv24h_prime12h",
+        "avg12h",
+        "volatility_72"
+      ],
+      "available_features": [
+        "volatility_72"
+      ],
+      "n_features": 1,
+      "samples": 39284,
+      "accuracy": 0.49828178694158076,
+      "roc_auc": 0.48495179711493047,
+      "timestamp": "2025-10-18T11:05:08.453605"
+    },
+    {
+      "name": "best_known",
+      "starting_features": [
+        "deriv7d_prime7d",
+        "deriv4d_roc",
+        "volatility_24"
+      ],
+      "available_features": [
+        "volatility_24"
+      ],
+      "n_features": 1,
+      "samples": 39284,
+      "accuracy": 0.4912816596665394,
+      "roc_auc": 0.486720322935738,
+      "timestamp": "2025-10-18T11:05:06.601779"
+    },
+    {
+      "name": "vol_trend",
+      "starting_features": [
+        "volatility_24",
+        "deriv7d_roc",
+        "deriv30d_roc"
+      ],
+      "available_features": [
+        "volatility_24"
+      ],
+      "n_features": 1,
+      "samples": 39284,
+      "accuracy": 0.4912816596665394,
+      "roc_auc": 0.486720322935738,
+      "timestamp": "2025-10-18T11:05:07.215709"
+    },
+    {
+      "name": "mixed_1",
+      "starting_features": [
+        "deriv7d_prime7d",
+        "avg1h",
+        "volatility_24"
+      ],
+      "available_features": [
+        "volatility_24"
+      ],
+      "n_features": 1,
+      "samples": 39284,
+      "accuracy": 0.4912816596665394,
+      "roc_auc": 0.486720322935738,
+      "timestamp": "2025-10-18T11:05:07.841833"
+    }
+  ]
+}

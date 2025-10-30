@@ -1,0 +1,21 @@
+[
+  {
+    "config": {
+      "horizon": "15min",
+      "threshold": 0.1
+    },
+    "train_metrics": {
+      "accuracy": 0.40588235294117647,
+      "up_acc": 0.2275132275132275,
+      "down_acc": 0.2864864864864865,
+      "sideways_acc": 0.523109243697479,
+      "train_samples": 3396,
+      "test_samples": 850
+    },
+    "backtest_results": {
+      "4h": {
+        "accuracy": 0.25,
+        "directional_accuracy": 0.2727272727272727,
+        "trading_accuracy": 0.2727272727272727,
+        "predictions": 12,
+        "up_predictions": 

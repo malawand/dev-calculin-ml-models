@@ -1,0 +1,77 @@
+{
+  "best_features": [
+    "crypto_last_price",
+    "job:crypto_last_price:avg10m",
+    "job:crypto_last_price:avg15m"
+  ],
+  "best_accuracy": 0.49159663865546216,
+  "history": [
+    {
+      "iteration": 0,
+      "action": "init",
+      "features": [
+        "crypto_last_price",
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m"
+      ],
+      "num_features": 3,
+      "accuracy": 0.49159663865546216,
+      "roc_auc": 0.28080259334955054
+    },
+    {
+      "iteration": 1,
+      "action": "skip",
+      "features": [
+        "crypto_last_price",
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m"
+      ],
+      "num_features": 3,
+      "accuracy": 0.49159663865546216
+    },
+    {
+      "iteration": 2,
+      "action": "skip",
+      "features": [
+        "crypto_last_price",
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m"
+      ],
+      "num_features": 3,
+      "accuracy": 0.49159663865546216
+    },
+    {
+      "iteration": 3,
+      "action": "skip",
+      "features": [
+        "crypto_last_price",
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m"
+      ],
+      "num_features": 3,
+      "accuracy": 0.49159663865546216
+    },
+    {
+      "iteration": 4,
+      "action": "skip",
+      "features": [
+        "crypto_last_price",
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m"
+      ],
+      "num_features": 3,
+      "accuracy": 0.49159663865546216
+    },
+    {
+      "iteration": 5,
+      "action": "skip",
+      "features": [
+        "crypto_last_price",
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m"
+      ],
+      "num_features": 3,
+      "accuracy": 0.49159663865546216
+    }
+  ]
+}

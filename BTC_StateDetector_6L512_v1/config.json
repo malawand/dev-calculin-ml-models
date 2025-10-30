@@ -1,0 +1,28 @@
+{
+  "model_name": "BTC_StateNN_6L_95p3_v1",
+  "created_date": "2025-10-30",
+  "architecture": {
+    "type": "MLPClassifier + MLPRegressor",
+    "layers": [512, 256, 128, 64, 32, 16],
+    "total_layers": 6,
+    "total_parameters": "~300,000"
+  },
+  "training": {
+    "dataset_size": "2.5 years (Jan 2023 - Jun 2025)",
+    "samples": 1276,
+    "features": 22,
+    "epochs": 10000,
+    "early_stopping": false
+  },
+  "performance": {
+    "direction_accuracy": 0.953,
+    "strength_correlation": 0.951,
+    "confidence_avg": 0.968
+  },
+  "features": [
+    "deriv_5m", "deriv_15m", "deriv_30m", "deriv_1h", "deriv_4h",
+    "... (all 22 features)"
+  ],
+  "purpose": "Real-time Bitcoin state detection (UP/DOWN/NONE)",
+  "notes": "Production model. Balanced detection across all states."
+}

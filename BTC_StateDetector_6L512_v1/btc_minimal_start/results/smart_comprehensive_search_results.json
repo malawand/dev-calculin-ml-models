@@ -1,0 +1,248 @@
+{
+  "test_date": "2025-10-18T11:08:52.041654",
+  "horizon": "24h",
+  "total_tests": 12,
+  "categories": {
+    "avg_ultra_short": 4,
+    "avg_short": 2,
+    "avg_medium": 3,
+    "avg_long": 8,
+    "deriv_ultra_short": 5,
+    "deriv_short": 2,
+    "deriv_medium": 4,
+    "deriv_long": 9,
+    "deriv_prime_short": 4,
+    "deriv_prime_medium": 21,
+    "deriv_prime_long": 35
+  },
+  "results": [
+    {
+      "name": "avg_long_top3",
+      "starting_features": [
+        "job:crypto_last_price:avg24h",
+        "job:crypto_last_price:avg48h",
+        "job:crypto_last_price:avg3d"
+      ],
+      "available_features": [
+        "job:crypto_last_price:avg24h",
+        "job:crypto_last_price:avg48h",
+        "job:crypto_last_price:avg3d"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5267913962072037,
+      "roc_auc": 0.510351966873706,
+      "mcc": 0.13987888846059343,
+      "timestamp": "2025-10-18T11:08:41.386401"
+    },
+    {
+      "name": "deriv_long_top3",
+      "starting_features": [
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv48h",
+        "job:crypto_last_price:deriv3d"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv24h",
+        "job:crypto_last_price:deriv48h",
+        "job:crypto_last_price:deriv3d"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5255186457935599,
+      "roc_auc": 0.5506563245514018,
+      "mcc": 0.052855724933932924,
+      "timestamp": "2025-10-18T11:08:44.885604"
+    },
+    {
+      "name": "avg_medium_top3",
+      "starting_features": [
+        "job:crypto_last_price:avg4h",
+        "job:crypto_last_price:avg8h",
+        "job:crypto_last_price:avg12h"
+      ],
+      "available_features": [
+        "job:crypto_last_price:avg4h",
+        "job:crypto_last_price:avg8h",
+        "job:crypto_last_price:avg12h"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5246277205040092,
+      "roc_auc": 0.5236801242236024,
+      "mcc": 0.13133860364248964,
+      "timestamp": "2025-10-18T11:08:39.953464"
+    },
+    {
+      "name": "avg_ultra_short_top3",
+      "starting_features": [
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m",
+        "job:crypto_last_price:avg30m"
+      ],
+      "available_features": [
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg15m",
+        "job:crypto_last_price:avg30m"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5243731704212804,
+      "roc_auc": 0.5205745341614907,
+      "mcc": 0.1302996381776387,
+      "timestamp": "2025-10-18T11:08:38.731984"
+    },
+    {
+      "name": "avg_multi_scale",
+      "starting_features": [
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg4h",
+        "job:crypto_last_price:avg24h"
+      ],
+      "available_features": [
+        "job:crypto_last_price:avg10m",
+        "job:crypto_last_price:avg4h",
+        "job:crypto_last_price:avg24h"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5243731704212804,
+      "roc_auc": 0.5287267080745341,
+      "mcc": 0.1302996381776387,
+      "timestamp": "2025-10-18T11:08:49.602433"
+    },
+    {
+      "name": "deriv_medium_top3",
+      "starting_features": [
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv12h"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv8h",
+        "job:crypto_last_price:deriv12h"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5069364897543591,
+      "roc_auc": 0.5256122710084262,
+      "mcc": 0.02648066291143473,
+      "timestamp": "2025-10-18T11:08:43.690011"
+    },
+    {
+      "name": "deriv_prime_medium_top3",
+      "starting_features": [
+        "job:crypto_last_price:deriv4h_prime30m",
+        "job:crypto_last_price:deriv4h_prime1h",
+        "job:crypto_last_price:deriv4h_prime2h"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv4h_prime30m",
+        "job:crypto_last_price:deriv4h_prime1h",
+        "job:crypto_last_price:deriv4h_prime2h"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5029909634720632,
+      "roc_auc": 0.5259079489002234,
+      "mcc": 0.027889241736467982,
+      "timestamp": "2025-10-18T11:08:47.167198"
+    },
+    {
+      "name": "deriv_multi_scale",
+      "starting_features": [
+        "job:crypto_last_price:deriv5m",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv24h"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv5m",
+        "job:crypto_last_price:deriv4h",
+        "job:crypto_last_price:deriv24h"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5008272877688685,
+      "roc_auc": 0.5300662352180499,
+      "mcc": 0.011700930062446858,
+      "timestamp": "2025-10-18T11:08:50.847001"
+    },
+    {
+      "name": "prime_multi_scale",
+      "starting_features": [
+        "job:crypto_last_price:deriv1h_prime1h",
+        "job:crypto_last_price:deriv4h_prime30m",
+        "job:crypto_last_price:deriv7d_prime7d"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv1h_prime1h",
+        "job:crypto_last_price:deriv4h_prime30m",
+        "job:crypto_last_price:deriv7d_prime7d"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.5004454626447754,
+      "roc_auc": 0.47787584665504174,
+      "mcc": 0.01650067986695658,
+      "timestamp": "2025-10-18T11:08:52.040559"
+    },
+    {
+      "name": "deriv_ultra_short_top3",
+      "starting_features": [
+        "job:crypto_last_price:deriv5m",
+        "job:crypto_last_price:deriv10m",
+        "job:crypto_last_price:deriv15m"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv5m",
+        "job:crypto_last_price:deriv10m",
+        "job:crypto_last_price:deriv15m"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.49726358661066566,
+      "roc_auc": 0.49740043912250165,
+      "mcc": 0.010291405966667284,
+      "timestamp": "2025-10-18T11:08:42.528788"
+    },
+    {
+      "name": "deriv_prime_short_top3",
+      "starting_features": [
+        "job:crypto_last_price:deriv1h_prime1h",
+        "job:crypto_last_price:deriv1h_prime2h",
+        "job:crypto_last_price:deriv2h_prime1h"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv1h_prime1h",
+        "job:crypto_last_price:deriv1h_prime2h",
+        "job:crypto_last_price:deriv2h_prime1h"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.49382716049382713,
+      "roc_auc": 0.5117294745618497,
+      "mcc": -0.0001722276720125159,
+      "timestamp": "2025-10-18T11:08:46.031926"
+    },
+    {
+      "name": "deriv_prime_long_top3",
+      "starting_features": [
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_last_price:deriv4d_prime4d"
+      ],
+      "available_features": [
+        "job:crypto_last_price:deriv7d_prime7d",
+        "job:crypto_last_price:deriv24h_prime24h",
+        "job:crypto_last_price:deriv4d_prime4d"
+      ],
+      "n_features": 3,
+      "samples": 39284,
+      "accuracy": 0.4738449789996182,
+      "roc_auc": 0.4603976990789783,
+      "mcc": -0.050098708202805826,
+      "timestamp": "2025-10-18T11:08:48.391947"
+    }
+  ]
+}

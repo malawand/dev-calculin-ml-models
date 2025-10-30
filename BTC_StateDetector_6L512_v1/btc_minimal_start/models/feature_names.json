@@ -1,0 +1,18 @@
+[
+  "return_15m",
+  "return_30m",
+  "return_60m",
+  "return_4h",
+  "volatility_30m",
+  "volatility_1h",
+  "volatility_4h",
+  "price_vs_ma_30m",
+  "price_vs_ma_1h",
+  "price_vs_ma_4h",
+  "volume",
+  "volume_ratio",
+  "job:crypto_last_price:deriv30m",
+  "job:crypto_last_price:deriv1h",
+  "job:crypto_last_price:deriv4h",
+  "job:crypto_last_price:deriv24h"
+]

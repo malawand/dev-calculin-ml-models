@@ -1,0 +1,364 @@
+{
+  "dashboard": {
+    "title": "Bitcoin Direction Prediction Monitor",
+    "tags": ["bitcoin", "ml", "trading", "predictions"],
+    "timezone": "utc",
+    "schemaVersion": 38,
+    "version": 1,
+    "refresh": "1m",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Current BTC Price",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 6, "x": 0, "y": 0},
+        "targets": [
+          {
+            "expr": "btc_current_price",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value",
+          "justifyMode": "center",
+          "textMode": "value_and_name",
+          "reduceOptions": {
+            "values": false,
+            "fields": "",
+            "calcs": ["lastNotNull"]
+          }
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "currencyUSD",
+            "decimals": 2
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Prediction Probability",
+        "type": "gauge",
+        "gridPos": {"h": 8, "w": 6, "x": 6, "y": 0},
+        "targets": [
+          {
+            "expr": "btc_prediction_probability_up * 100",
+            "refId": "A",
+            "legendFormat": "UP Probability"
+          }
+        ],
+        "options": {
+          "orientation": "auto",
+          "showThresholdLabels": true,
+          "showThresholdMarkers": true
+        },
+        "fieldConfig": {
+          "defaults": {
+            "min": 0,
+            "max": 100,
+            "unit": "percent",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": 0, "color": "red"},
+                {"value": 40, "color": "orange"},
+                {"value": 50, "color": "yellow"},
+                {"value": 60, "color": "green"},
+                {"value": 80, "color": "dark-green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Signal Strength",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 6, "x": 12, "y": 0},
+        "targets": [
+          {
+            "expr": "btc_prediction_signal",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "none",
+          "colorMode": "background",
+          "textMode": "value_and_name"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {"type": "value", "value": -3, "text": "STRONG SELL"},
+              {"type": "value", "value": -2, "text": "SELL"},
+              {"type": "value", "value": -1, "text": "WEAK SELL"},
+              {"type": "value", "value": 0, "text": "HOLD"},
+              {"type": "value", "value": 1, "text": "WEAK BUY"},
+              {"type": "value", "value": 2, "text": "BUY"},
+              {"type": "value", "value": 3, "text": "STRONG BUY"}
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": -3, "color": "dark-red"},
+                {"value": -2, "color": "red"},
+                {"value": -1, "color": "orange"},
+                {"value": 0, "color": "yellow"},
+                {"value": 1, "color": "light-green"},
+                {"value": 2, "color": "green"},
+                {"value": 3, "color": "dark-green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "Confidence Level",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 6, "x": 18, "y": 0},
+        "targets": [
+          {
+            "expr": "btc_prediction_confidence",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "none",
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {"type": "value", "value": 0, "text": "LOW"},
+              {"type": "value", "value": 1, "text": "MEDIUM"},
+              {"type": "value", "value": 2, "text": "HIGH"},
+              {"type": "value", "value": 3, "text": "VERY HIGH"}
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": 0, "color": "red"},
+                {"value": 1, "color": "orange"},
+                {"value": 2, "color": "green"},
+                {"value": 3, "color": "dark-green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 5,
+        "title": "BTC Price & Prediction Probability (24h)",
+        "type": "timeseries",
+        "gridPos": {"h": 10, "w": 24, "x": 0, "y": 8},
+        "targets": [
+          {
+            "expr": "btc_current_price",
+            "refId": "A",
+            "legendFormat": "BTC Price (USD)"
+          },
+          {
+            "expr": "btc_prediction_probability_up * 1000",
+            "refId": "B",
+            "legendFormat": "Prob UP (x1000)"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth",
+              "fillOpacity": 10,
+              "showPoints": "auto"
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {"id": "byName", "options": "BTC Price (USD)"},
+              "properties": [
+                {"id": "unit", "value": "currencyUSD"},
+                {"id": "custom.axisPlacement", "value": "left"}
+              ]
+            },
+            {
+              "matcher": {"id": "byName", "options": "Prob UP (x1000)"},
+              "properties": [
+                {"id": "unit", "value": "short"},
+                {"id": "custom.axisPlacement", "value": "right"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "title": "Signal Strength History",
+        "type": "timeseries",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 18},
+        "targets": [
+          {
+            "expr": "btc_prediction_signal",
+            "refId": "A",
+            "legendFormat": "Signal"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "bars",
+              "fillOpacity": 80
+            },
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": -4, "color": "dark-red"},
+                {"value": -2, "color": "red"},
+                {"value": -0.5, "color": "orange"},
+                {"value": 0, "color": "yellow"},
+                {"value": 0.5, "color": "light-green"},
+                {"value": 2, "color": "green"},
+                {"value": 3, "color": "dark-green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 7,
+        "title": "Prediction Latency",
+        "type": "timeseries",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 18},
+        "targets": [
+          {
+            "expr": "btc_prediction_latency_seconds",
+            "refId": "A",
+            "legendFormat": "Latency (seconds)"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 20
+            },
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": 0, "color": "green"},
+                {"value": 10, "color": "yellow"},
+                {"value": 30, "color": "red"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 8,
+        "title": "Total Predictions",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 0, "y": 26},
+        "targets": [
+          {
+            "expr": "btc_prediction_total",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short"
+          }
+        }
+      },
+      {
+        "id": 9,
+        "title": "Prediction Errors",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 6, "y": 26},
+        "targets": [
+          {
+            "expr": "btc_prediction_errors_total",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": 0, "color": "green"},
+                {"value": 5, "color": "yellow"},
+                {"value": 10, "color": "red"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 10,
+        "title": "Model Info",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 12, "x": 12, "y": 26},
+        "targets": [
+          {
+            "expr": "btc_model_info",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "none",
+          "textMode": "name"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {
+                "type": "special",
+                "options": {
+                  "match": "null",
+                  "result": {"text": "Model v2.0 | 76.46% Accuracy | 6 Features | 24h Horizon"}
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 11,
+        "title": "Prediction Rate (predictions/min)",
+        "type": "timeseries",
+        "gridPos": {"h": 6, "w": 24, "x": 0, "y": 30},
+        "targets": [
+          {
+            "expr": "rate(btc_prediction_total[5m]) * 60",
+            "refId": "A",
+            "legendFormat": "Predictions per minute"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "cpm",
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 30
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+
+

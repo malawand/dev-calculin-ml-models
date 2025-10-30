@@ -1,0 +1,45 @@
+# Minimal Start Configuration
+# Simple, clean, easy to understand
+
+horizon: '24h'
+
+# Data source
+data:
+  source: '../btc_direction_predictor/artifacts/historical_data/combined_full_dataset.parquet'
+  lookback_window: 24  # 24 bars * 15min = 6 hours
+  test_split: 0.2
+
+# Starting features (absolute minimum)
+minimal_features:
+  - 'deriv30d_roc'      # Long-term trend
+  - 'volatility_24'     # Volatility  
+  - 'avg14d_spread'     # Mean reversion
+
+# Model architecture
+model:
+  lstm_hidden: [32, 32]  # Smaller for fewer features
+  dropout: 0.3
+  learning_rate: 0.001
+
+# Training
+training:
+  epochs: 30
+  batch_size: 64
+  early_stopping_patience: 5
+
+# Incremental training
+incremental:
+  max_features: 20           # Stop at 20 features max
+  max_iterations: 50         # Max iterations
+  no_improve_stop: 5         # Stop after 5 no-improvements
+  candidates_per_iter: 3     # Try 3 candidates each iteration
+  min_improvement: 0.001     # Minimum accuracy improvement to keep feature
+
+# Baseline comparison
+baseline:
+  accuracy: 0.5836           # From btc_lstm_ensemble
+  num_features: 9            # LightGBM Top 9
+  roc_auc: 0.6306
+
+
+

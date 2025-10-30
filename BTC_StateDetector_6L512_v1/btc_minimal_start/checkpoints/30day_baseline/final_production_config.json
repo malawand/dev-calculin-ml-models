@@ -1,0 +1,77 @@
+{
+  "horizon": "4h",
+  "threshold_pct": 2.0,
+  "features": [
+    "job:crypto_last_price:deriv30d",
+    "job:crypto_last_price:deriv8h",
+    "job:crypto_last_price:deriv12h",
+    "job:crypto_last_price:deriv16h",
+    "job:crypto_last_price:deriv14d",
+    "job:crypto_last_price:deriv4h",
+    "job:crypto_last_price:deriv24h",
+    "job:crypto_last_price:deriv3d"
+  ],
+  "num_features": 8,
+  "training_samples": 2657,
+  "up_ratio": 0.5144900263455024,
+  "performance": {
+    "accuracy": 0.5470588235294118,
+    "precision": 0.5397096498719044,
+    "recall": 0.5776965265082267,
+    "f1": 0.5580573951434878,
+    "mcc": 0.09488632712889127,
+    "roc_auc": 0.5651451711191052
+  },
+  "fold_results": [
+    {
+      "fold": 1,
+      "accuracy": 0.4796380090497738,
+      "precision": 0.6097560975609756,
+      "recall": 0.2918287937743191,
+      "f1": 0.39473684210526316,
+      "mcc": 0.03563184386949116,
+      "roc_auc": 0.5961510148280575
+    },
+    {
+      "fold": 2,
+      "accuracy": 0.5452488687782805,
+      "precision": 0.47346938775510206,
+      "recall": 0.6170212765957447,
+      "f1": 0.535796766743649,
+      "mcc": 0.10856565798357619,
+      "roc_auc": 0.607471938348132
+    },
+    {
+      "fold": 3,
+      "accuracy": 0.5542986425339367,
+      "precision": 0.5683760683760684,
+      "recall": 0.5807860262008734,
+      "f1": 0.5745140388768899,
+      "mcc": 0.10672255269000763,
+      "roc_auc": 0.5518789593455933
+    },
+    {
+      "fold": 4,
+      "accuracy": 0.5339366515837104,
+      "precision": 0.5125448028673835,
+      "recall": 0.6713615023474179,
+      "f1": 0.5813008130081301,
+      "mcc": 0.08023677142657458,
+      "roc_auc": 0.5222953441171044
+    },
+    {
+      "fold": 5,
+      "accuracy": 0.6221719457013575,
+      "precision": 0.5689655172413793,
+      "recall": 0.7971014492753623,
+      "f1": 0.6639839034205232,
+      "mcc": 0.2785799226812051,
+      "roc_auc": 0.7063007503340529
+    }
+  ],
+  "trained_at": "2025-10-18T20:06:12.098243",
+  "data_range": {
+    "start": "2023-04-03 04:30:00+00:00",
+    "end": "2025-10-16 15:15:00+00:00"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.5214217708663916,
+  "precision_up": 0.5150100066711141,
+  "recall_up": 0.4971023824855119,
+  "f1_up": 0.5058977719528178,
+  "mcc": 0.04220418496639281,
+  "roc_auc": 0.5301959065057981,
+  "true_negatives": 871,
+  "false_positives": 727,
+  "false_negatives": 781,
+  "true_positives": 772,
+  "hit_rate": 0.5150100066711141,
+  "avg_return_per_trade": NaN,
+  "num_trades": 1499,
+  "cumulative_return": NaN,
+  "sharpe_ratio": 0.0,
+  "max_drawdown": NaN
+}

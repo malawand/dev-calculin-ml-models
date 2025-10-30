@@ -1,0 +1,68 @@
+# Prometheus alerting rules for BTC predictions
+groups:
+  - name: btc_prediction_alerts
+    interval: 1m
+    rules:
+      # Alert when model is very confident about direction
+      - alert: BTCStrongBuySignal
+        expr: btc_prediction_signal >= 3
+        for: 5m
+        labels:
+          severity: info
+          signal: buy
+        annotations:
+          summary: "Strong BUY signal detected"
+          description: "Model is very confident ({{ $value }}) that BTC will go UP. Probability: {{ $labels.probability }}"
+
+      - alert: BTCStrongSellSignal
+        expr: btc_prediction_signal <= -3
+        for: 5m
+        labels:
+          severity: info
+          signal: sell
+        annotations:
+          summary: "Strong SELL signal detected"
+          description: "Model is very confident ({{ $value }}) that BTC will go DOWN. Probability: {{ $labels.probability }}"
+
+      # Alert when exporter is down
+      - alert: BTCPredictorDown
+        expr: up{job="btc_predictions"} == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "BTC Prediction exporter is down"
+          description: "The BTC prediction exporter has been down for more than 5 minutes."
+
+      # Alert on prediction errors
+      - alert: BTCPredictionErrors
+        expr: rate(btc_prediction_errors_total[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High rate of prediction errors"
+          description: "Prediction error rate is {{ $value }} errors/sec over last 5 minutes."
+
+      # Alert on high latency
+      - alert: BTCPredictionHighLatency
+        expr: btc_prediction_latency_seconds > 30
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High prediction latency"
+          description: "Prediction latency is {{ $value }}s, which is unusually high."
+
+      # Alert on price volatility + strong signal
+      - alert: BTCVolatilityWithStrongSignal
+        expr: (btc_prediction_signal >= 2 or btc_prediction_signal <= -2) and rate(btc_current_price[5m]) > 0.02
+        for: 2m
+        labels:
+          severity: info
+        annotations:
+          summary: "Strong signal during high volatility"
+          description: "Strong trading signal ({{ $labels.signal }}) detected during high price volatility."
+
+
+

@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.4846633575155912,
+  "roc_auc": 0.48960068707194104,
+  "mcc": -0.02591850413839866,
+  "features": [
+    "volatility_24"
+  ],
+  "horizon": "24h",
+  "training_samples": 39284,
+  "n_features": 1,
+  "date_saved": "2025-10-18T00:21:49.495793",
+  "production_ready": true
+}
