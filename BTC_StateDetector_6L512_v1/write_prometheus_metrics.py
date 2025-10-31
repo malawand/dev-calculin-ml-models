@@ -8,7 +8,8 @@ import time
 from pathlib import Path
 
 # Where to write the metrics file
-METRICS_FILE = Path("./metrics/btc_ml_metrics.prom")  # Change path if needed
+# METRICS_FILE = Path("./metrics/btc_ml_metrics.prom")  # Change path if needed
+METRICS_FILE = Path("/opt/crypto-analytics/metrics/btc_statedetector_6l512_v1.prom")
 
 def write_metrics(state, fair, signal, price):
     """
