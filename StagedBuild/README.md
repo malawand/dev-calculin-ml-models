@@ -233,13 +233,14 @@ recommended **8 days** of lookback. See
 ## Prometheus / Grafana metrics
 
 The live exporter (prefix `btc_regime_detector_*`) publishes these gauges/counters
-— this is what your Grafana dashboard plots:
+— this is what your Grafana dashboard plots. Every series carries a
+`symbol="BTCUSDT"` label.
 
 | Metric | Type | Meaning |
 |--------|------|---------|
-| `btc_regime_detector_regime_value` | gauge | Current regime as int (0–3) |
+| `btc_regime_detector_regime_value` | gauge | Current regime as int (0–3) — see encoding below |
 | `btc_regime_detector_confidence` | gauge | Max class probability (0–1) |
-| `btc_regime_detector_prob{regime=...}` | gauge | Per-regime probability |
+| `btc_regime_detector_prob{regime=...}` | gauge | Per-regime probability (one series per regime) |
 | `btc_regime_detector_last_price` | gauge | BTC price at last prediction |
 | `btc_regime_detector_last_timestamp` | gauge | Bar timestamp used (unix) |
 | `btc_regime_detector_last_run_unix` | gauge | When the loop last ran |
@@ -248,8 +249,70 @@ The live exporter (prefix `btc_regime_detector_*`) publishes these gauges/counte
 | `btc_regime_detector_bars_usable` | gauge | Bars with complete features |
 | `btc_regime_detector_prediction_runs_total{status=...}` | counter | Success/failure count |
 
-Stage 6 adds a separate `btc_entry_sm_*` metric family (state machine state,
-breakout flags, `ENTER_LONG` counter).
+### Regime encoding (`btc_regime_detector_regime_value`)
+
+The winning regime is written as a single integer gauge:
+
+| Value | Regime |
+|-------|--------|
+| `0` | `CHOP` |
+| `1` | `TRENDING_UP` |
+| `2` | `TRENDING_DOWN` |
+| `3` | `VOLATILE_EXPANSION` |
+
+### Per-regime probability series (`btc_regime_detector_prob`)
+
+The full probability distribution is written as **four separate time series**, one
+per regime, distinguished by the `regime` label. They always sum to ~1.0:
+
+| Series | Regime probability |
+|--------|--------------------|
+| `btc_regime_detector_prob{regime="CHOP"}` | P(CHOP) |
+| `btc_regime_detector_prob{regime="TRENDING_UP"}` | P(TRENDING_UP) |
+| `btc_regime_detector_prob{regime="TRENDING_DOWN"}` | P(TRENDING_DOWN) |
+| `btc_regime_detector_prob{regime="VOLATILE_EXPANSION"}` | P(VOLATILE_EXPANSION) |
+
+### Example PromQL / Grafana queries
+
+```promql
+# Current regime as a number (map to text in Grafana value mappings 0→CHOP, etc.)
+btc_regime_detector_regime_value{symbol="BTCUSDT"}
+
+# Stacked probability chart (add all four series, or use the regime label)
+btc_regime_detector_prob{symbol="BTCUSDT"}
+
+# Just the volatile-expansion probability
+btc_regime_detector_prob{symbol="BTCUSDT", regime="VOLATILE_EXPANSION"}
+
+# Highlight only high-confidence calls
+btc_regime_detector_confidence{symbol="BTCUSDT"} > 0.8
+
+# Staleness / freshness alert (no successful run in 30 min)
+time() - btc_regime_detector_last_run_unix{symbol="BTCUSDT"} > 1800
+```
+
+> Tip: in Grafana, add **Value mappings** on `btc_regime_detector_regime_value`
+> (0→CHOP, 1→TRENDING_UP, 2→TRENDING_DOWN, 3→VOLATILE_EXPANSION) so the regime
+> panel shows the state name and color instead of a bare integer.
+
+### Stage 6 metrics (`btc_entry_sm_*`)
+
+If you run the entry state machine, it publishes a separate family whose main
+gauge encodes its own states:
+
+| `btc_entry_sm_state_numeric` | State |
+|------------------------------|-------|
+| `0` | NEUTRAL |
+| `1` | CHOP_BASE |
+| `2` | EXPANSION_ALERT |
+| `3` | BULLISH_CONFIRMATION |
+| `4` | LONG_ENTRY |
+| `5` | IN_LONG |
+| `6` | COOLDOWN |
+
+plus `btc_entry_sm_chop_dominance_ratio`, `btc_entry_sm_trend_spread`,
+`btc_entry_sm_price_breakout`, `btc_entry_sm_long_entry_signal`, and the
+`btc_entry_sm_enter_long_total` counter.
 
 ---
 
