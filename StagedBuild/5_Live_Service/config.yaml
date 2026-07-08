@@ -1,0 +1,26 @@
+# Prometheus query settings
+prometheus:
+  query_range_url: "http://10.1.20.60:9009/prometheus/api/v1/query_range"
+  lookback_days: 8          # pull 8 days of 15m bars (min needed: ~4 days / 384 bars)
+  step_seconds: 900         # 15-minute bars — must match training data
+  queries:
+    price: 'max by (symbol) (crypto_last_price{symbol="BTCUSDT"})'
+    weighted_norm_avg_16h_24h_48h: 'job:crypto_last_price:weighted_normalized_avg:16h:24h:48h{symbol="BTCUSDT"}'
+    weighted_deriv_24h_48h_7d: 'job:crypto_last_price:weighted_deriv:24h:48h:7d{symbol="BTCUSDT"}'
+    norm_combined_avg: 'job:crypto_last_price:normalized_combined_avg{symbol="BTCUSDT"}'
+
+# Where trained artifacts live (relative to 5_Live_Service/)
+paths:
+  classifier_artifacts: "artifacts"
+  encoder_artifacts: "artifacts/encoder_artifacts.json"
+
+# HTTP API for health checks and latest prediction
+service:
+  api_port: 8080
+  poll_interval_seconds: 900   # run every 15 minutes (aligned with bar size)
+
+# Prometheus exporter — scraped by Prometheus, stored long-term in Cortex
+telemetry:
+  enabled: true
+  metrics_port: 9109
+  symbol: BTCUSDT

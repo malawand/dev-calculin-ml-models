@@ -1,0 +1,47 @@
+# Stage 6 — Bullish entry state machine
+# Bar interval: 15 minutes (must match Stage 5 nowcaster)
+
+state_machine:
+  # CHOP_BASE: 12 bars = 3 hours at 15m
+  chop_lookback_bars: 12
+  chop_dominance_threshold: 0.35
+  required_chop_dominance_ratio: 0.65
+
+  # EXPANSION_ALERT: 4 bars = 1 hour lookback for rise
+  volatile_expansion_threshold: 0.25
+  volatile_expansion_rise_threshold: 0.15
+  volatile_expansion_lookback_bars: 4
+
+  # BULLISH_CONFIRMATION
+  trend_up_threshold: 0.40
+  trend_spread_threshold: 0.10
+  require_trend_crossing: false
+  trend_crossing_lookback_bars: 4
+
+  # LONG_ENTRY: 96 bars = 24 hours prior range
+  range_lookback_bars: 96
+  breakout_buffer_pct: 0.001
+
+  # Setup expiry: 8 bars = 2 hours after EXPANSION_ALERT
+  max_signal_age_bars: 8
+
+  # Confidence filter at entry
+  minimum_model_confidence: 0.55
+  minimum_confidence_gap: 0.10
+
+  # Guardrails
+  entry_cooldown_bars: 96
+  allow_reentry_while_in_position: false
+
+# Poll Stage 5 nowcaster (HTTP only — no import of Stage 5 code)
+nowcaster:
+  url: "http://localhost:8080/prediction"
+  poll_interval_seconds: 900
+
+service:
+  api_port: 8082
+
+telemetry:
+  enabled: true
+  metrics_port: 9111
+  symbol: BTCUSDT

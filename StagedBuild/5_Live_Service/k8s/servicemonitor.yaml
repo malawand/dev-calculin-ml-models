@@ -1,0 +1,22 @@
+# For clusters using Prometheus Operator (kube-prometheus-stack, etc.).
+# Adjust namespace and release label to match your Prometheus installation.
+#
+#   kubectl apply -f k8s/servicemonitor.yaml
+#
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: btc-regime-detector
+  labels:
+    app: btc-regime-detector
+    # kube-prometheus-stack often requires:
+    # release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: btc-regime-detector
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 60s
+      scrapeTimeout: 15s

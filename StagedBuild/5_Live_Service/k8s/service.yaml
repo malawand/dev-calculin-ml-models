@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: btc-regime-detector
+  labels:
+    app: btc-regime-detector
+spec:
+  selector:
+    app: btc-regime-detector
+  ports:
+    - name: api
+      port: 8080
+      targetPort: api
+    - name: metrics
+      port: 9109
+      targetPort: metrics
+  type: ClusterIP

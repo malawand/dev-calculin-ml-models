@@ -1,0 +1,29 @@
+==========================================================================
+Stage 4 — Regime classifier training
+==========================================================================
+Dataset summary
+---------------
+features          : 87
+train rows        : 25,739  (CHOP=38.8%, TRENDING_UP=29.1%, TRENDING_DOWN=25.5%, VOLATILE_EXPANSION=6.5%)
+val   rows        : 5,516  (CHOP=36.6%, TRENDING_UP=23.7%, TRENDING_DOWN=30.9%, VOLATILE_EXPANSION=8.9%)
+test  rows        : 5,515  (CHOP=27.2%, TRENDING_UP=32.4%, TRENDING_DOWN=31.6%, VOLATILE_EXPANSION=8.7%)
+train range       : 2025-03-22 00:15:18+00:00 -> 2025-12-20 21:00:18+00:00
+val   range       : 2025-12-20 21:15:18+00:00 -> 2026-02-16 08:00:18+00:00
+test  range       : 2026-02-16 08:15:18+00:00 -> 2026-04-15 00:15:18+00:00
+
+Class weights (inverse frequency, normalized to mean 1):
+  CHOP                   weight=0.408
+  TRENDING_UP            weight=0.544
+  TRENDING_DOWN          weight=0.621
+  VOLATILE_EXPANSION     weight=2.427
+
+LightGBM params: {'objective': 'multiclass', 'num_class': 4, 'metric': ['multi_logloss'], 'learning_rate': 0.05, 'num_leaves': 63, 'min_data_in_leaf': 200, 'feature_fraction': 0.85, 'bagging_fraction': 0.85, 'bagging_freq': 5, 'lambda_l2': 0.1, 'verbose': -1, 'seed': 42, 'deterministic': True}
+Training... (max 2000 rounds, early stop after 100).
+
+Best iteration : 49
+Best val score : 0.80441
+
+==========================================================================
+VAL : acc=0.7331  macro_F1=0.7095  logloss=0.6799
+TEST: acc=0.6945  macro_F1=0.6379  logloss=0.7314
+==========================================================================

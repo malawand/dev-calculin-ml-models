@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: btc-regime-detector
+  labels:
+    app: btc-regime-detector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: btc-regime-detector
+  template:
+    metadata:
+      labels:
+        app: btc-regime-detector
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9109"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+        - name: detector
+          image: btc-regime-detector:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: api
+              containerPort: 8080
+            - name: metrics
+              containerPort: 9109
+          volumeMounts:
+            - name: config
+              mountPath: /app/config.yaml
+              subPath: config.yaml
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
+          command: ["python", "src/service.py", "--config", "/app/config.yaml"]
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: api
+            initialDelaySeconds: 15
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: api
+            initialDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: config
+          configMap:
+            name: btc-regime-detector-config

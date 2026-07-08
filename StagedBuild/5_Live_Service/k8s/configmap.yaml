@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: btc-regime-detector-config
+  labels:
+    app: btc-regime-detector
+data:
+  config.yaml: |
+    prometheus:
+      query_range_url: "http://10.1.20.60:9009/prometheus/api/v1/query_range"
+      lookback_days: 8
+      step_seconds: 900
+      queries:
+        price: 'max by (symbol) (crypto_last_price{symbol="BTCUSDT"})'
+        weighted_norm_avg_16h_24h_48h: 'job:crypto_last_price:weighted_normalized_avg:16h:24h:48h{symbol="BTCUSDT"}'
+        weighted_deriv_24h_48h_7d: 'job:crypto_last_price:weighted_deriv:24h:48h:7d{symbol="BTCUSDT"}'
+        norm_combined_avg: 'job:crypto_last_price:normalized_combined_avg{symbol="BTCUSDT"}'
+    paths:
+      classifier_artifacts: "artifacts"
+      encoder_artifacts: "artifacts/encoder_artifacts.json"
+    service:
+      api_port: 8080
+      poll_interval_seconds: 900
+    telemetry:
+      enabled: true
+      metrics_port: 9109
+      symbol: BTCUSDT

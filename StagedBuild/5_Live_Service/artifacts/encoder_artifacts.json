@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "description": "Frozen Stage 3 encoder thresholds for live inference",
+    "source_parquet": "/Users/mazenlawand/Documents/Calculin ML Models/StagedBuild/2_Build_Labels/btc_data_15m_labeled.parquet",
+    "row_count": 37628
+  },
+  "feature_cols": [
+    "weighted_norm_avg_16h_24h_48h",
+    "weighted_deriv_24h_48h_7d",
+    "norm_combined_avg"
+  ],
+  "windows": [
+    16,
+    32,
+    96,
+    192
+  ],
+  "threshold_pctl": 30.0,
+  "epsilon_pctl": 10.0,
+  "train_fraction": 0.7,
+  "thresholds": {
+    "weighted_norm_avg_16h_24h_48h": 0.6814902836895673,
+    "weighted_deriv_24h_48h_7d": 0.0036050418664123843,
+    "norm_combined_avg": 0.6625612759556119
+  },
+  "epsilons": {
+    "weighted_norm_avg_16h_24h_48h": {
+      "16": 0.003225200274058815,
+      "32": 0.002985451035707141,
+      "96": 0.0021847483495371456,
+      "192": 0.001426984956888533
+    },
+    "weighted_deriv_24h_48h_7d": {
+      "16": 2.2087874752450468e-05,
+      "32": 1.9618959757729455e-05,
+      "96": 1.3543348358970702e-05,
+      "192": 8.669394052532274e-06
+    },
+    "norm_combined_avg": {
+      "16": 0.015815023239057653,
+      "32": 0.007856435076658685,
+      "96": 0.0026226105635114225,
+      "192": 0.0014025711333562488
+    }
+  },
+  "epsilons_fast": {
+    "weighted_norm_avg_16h_24h_48h": {
+      "16": 0.003313198791482131,
+      "32": 0.0033294053643162995,
+      "96": 0.003241473534198353,
+      "192": 0.0030324619179695053
+    },
+    "weighted_deriv_24h_48h_7d": {
+      "16": 2.3467246205061917e-05,
+      "32": 2.3381650216112776e-05,
+      "96": 2.2286914212515982e-05,
+      "192": 2.1395487775464887e-05
+    },
+    "norm_combined_avg": {
+      "16": 0.0395125196731859,
+      "32": 0.034034090065013456,
+      "96": 0.019129047771964006,
+      "192": 0.011069858775979682
+    }
+  }
+}
