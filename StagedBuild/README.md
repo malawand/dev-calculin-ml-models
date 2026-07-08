@@ -25,6 +25,7 @@ using only past data. The output is a *signal* (a feature), not a trade command.
 - [Current performance](#current-performance)
 - [Live service & output](#live-service--output)
 - [Prometheus / Grafana metrics](#prometheus--grafana-metrics)
+- [Entry state machine (Stage 6)](#entry-state-machine-stage-6)
 - [Repository layout](#repository-layout)
 - [Running the pipeline](#running-the-pipeline)
 - [Design notes & known limitations](#design-notes--known-limitations)
@@ -316,6 +317,104 @@ plus `btc_entry_sm_chop_dominance_ratio`, `btc_entry_sm_trend_spread`,
 
 ---
 
+## Entry state machine (Stage 6)
+
+Stage 6 sits on top of the nowcaster. It consumes the regime **probabilities**
+and turns them into a structured, gated bullish setup. It is a **context / gating
+layer** — not a "buy when TRENDING_UP is highest" rule — and it processes one bar
+at a time so the same code runs in backtest and live.
+
+### All possible states
+
+Every state you can encounter, its Prometheus code (`btc_entry_sm_state_numeric`),
+and the `action` it emits:
+
+| # | State | Meaning | Action emitted |
+|---|-------|---------|----------------|
+| 0 | `NEUTRAL` | No active setup; idle baseline | `NO_TRADE` |
+| 1 | `CHOP_BASE` | CHOP dominated the lookback window — a base is forming | `HOLD` |
+| 2 | `EXPANSION_ALERT` | VOLATILE_EXPANSION probability spiked and rose vs. N bars ago; setup timer starts | `HOLD` |
+| 3 | `BULLISH_CONFIRMATION` | TRENDING_UP overtaking TRENDING_DOWN (the reversal) | `HOLD` |
+| 4 | `LONG_ENTRY` | Transient: breakout + confidence filters passed → signal fires | `ENTER_LONG` |
+| 5 | `IN_LONG` | External bot reports an open long position | `HOLD` |
+| 6 | `COOLDOWN` | Post-signal wait before a new setup can form | `NO_TRADE` |
+
+### Transition flow
+
+The intended happy path is a four-step bullish transition, with guards that reset
+the setup if it stalls or the premise breaks:
+
+```
+NEUTRAL ──chop dominance──▶ CHOP_BASE ──vol-exp spike──▶ EXPANSION_ALERT
+   ▲                             │                              │
+   │                     chop lost│                     trend up > down
+   │                             ▼                              ▼
+   └──── COOLDOWN ◀── LONG_ENTRY ◀── breakout + confidence ── BULLISH_CONFIRMATION
+              │          (ENTER_LONG)                                │
+              │                                                      │
+   (cooldown done)                              setup expires / conf lost
+              ▼                                                      │
+           NEUTRAL ◀─────────────────────────────────────────────── ┘
+```
+
+Key guards (all thresholds live in `config.yaml`):
+
+- **`NEUTRAL → CHOP_BASE`** — over `chop_lookback_bars`, at least
+  `required_chop_dominance_ratio` of bars have CHOP dominant and ≥
+  `chop_dominance_threshold`.
+- **`CHOP_BASE → EXPANSION_ALERT`** — current `prob_volatile_expansion` ≥
+  `volatile_expansion_threshold` **and** its rise vs.
+  `volatile_expansion_lookback_bars` ago ≥ `volatile_expansion_rise_threshold`.
+- **`EXPANSION_ALERT → BULLISH_CONFIRMATION`** — `prob_trending_up` ≥
+  `trend_up_threshold` **and** trend spread (`up − down`) ≥
+  `trend_spread_threshold` (optionally requiring a fresh *crossing* — see below).
+- **`BULLISH_CONFIRMATION → LONG_ENTRY`** — price breaks above the prior-bar range
+  high (+ `breakout_buffer_pct`) **and** model confidence gap passes.
+- **Expiry** — if confirmation/entry don't complete within `max_signal_age_bars`,
+  reset to `NEUTRAL`. After firing, `entry_cooldown_bars` of `COOLDOWN`.
+
+All breakout/range math uses **prior bars only** — no lookahead.
+
+### Which state determines a buy (bearish → bullish reversal)?
+
+**`BULLISH_CONFIRMATION` is the reversal detector; `LONG_ENTRY` is the trigger.**
+
+The actual bearish→bullish reversal is captured by the **trend spread**:
+
+```
+trend_spread = prob_trending_up − prob_trending_down
+```
+
+`BULLISH_CONFIRMATION` fires when `prob_trending_up` clears `trend_up_threshold`
+and this spread turns positive past `trend_spread_threshold` — i.e. the model's
+belief flips from "down is winning" to "up is winning." That sign-flip **is** the
+regime reversal.
+
+For the cleanest reversal signal, enable **`require_trend_crossing`** in config.
+With it on, `BULLISH_CONFIRMATION` only fires on a genuine *crossover* — the spread
+was **below** the threshold within the last `trend_crossing_lookback_bars` and is
+**now above** it. That isolates the exact bar where bearish momentum yields to
+bullish, rather than firing on an already-established uptrend.
+
+`LONG_ENTRY` then adds price confirmation (breakout above the recent range high +
+a confidence-gap filter) so you only act on a reversal that price is validating —
+this is the state that emits `ENTER_LONG`. In short:
+
+- **Earliest, softest reversal read:** trend spread crossing zero / turning positive.
+- **Confirmed reversal:** `BULLISH_CONFIRMATION` (spread crossing above threshold).
+- **Actionable buy:** `LONG_ENTRY` (reversal + breakout + confidence).
+
+### What about the reverse (bullish → bearish / sell)?
+
+There is **no bearish/exit state machine implemented today.** `EXIT_LONG` exists in
+the `Action` enum but is reserved and unused. To detect the opposite reversal you'd
+mirror the logic: watch the trend spread cross **below** `−threshold`
+(`prob_trending_down` overtaking `prob_trending_up`), optionally gated by a
+VOLATILE_EXPANSION spike and a downside breakout. This is a natural next build —
+see the roadmap.
+
+---
+
 ## Repository layout
 
 ```
@@ -406,4 +505,7 @@ scope:
   layer rather than acting on `argmax` directly.
 - [ ] **Live drift monitoring** — run the price-based rule alongside the model in
   Stage 5 and alert when their disagreement rate climbs (signal to retrain).
+- [ ] **Bearish / exit state machine** — mirror Stage 6 for the bullish→bearish
+  reversal (trend spread crossing below `−threshold`) and wire up the reserved
+  `EXIT_LONG` action.
 ```
