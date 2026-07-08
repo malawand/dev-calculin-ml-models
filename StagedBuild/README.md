@@ -298,11 +298,13 @@ time() - btc_regime_detector_last_run_unix{symbol="BTCUSDT"} > 1800
 
 ### Stage 6 metrics (`btc_entry_sm_*`)
 
-If you run the entry state machine, it publishes a separate family whose main
-gauge encodes its own states:
+If you run the entry state machine, it publishes a separate family. State is
+exposed **two ways** so you can track it reliably in Grafana:
 
-| `btc_entry_sm_state_numeric` | State |
-|------------------------------|-------|
+**1. Single current-state gauge** — `btc_entry_sm_state_numeric` (one line, 0–6):
+
+| Value | State |
+|-------|-------|
 | `0` | NEUTRAL |
 | `1` | CHOP_BASE |
 | `2` | EXPANSION_ALERT |
@@ -311,9 +313,68 @@ gauge encodes its own states:
 | `5` | IN_LONG |
 | `6` | COOLDOWN |
 
-plus `btc_entry_sm_chop_dominance_ratio`, `btc_entry_sm_trend_spread`,
-`btc_entry_sm_price_breakout`, `btc_entry_sm_long_entry_signal`, and the
+Good for a single "current state" stat panel (add Grafana value mappings 0→NEUTRAL …).
+
+**2. Per-state one-hot gauge** — `btc_entry_sm_state{state="..."}`. Every one of the
+seven states **always has its own series**, set to `1` when it is the active state
+this cycle and `0` otherwise. All series exist from the first scrape (initialized
+to 0), even for states that haven't occurred yet — so nothing is missing from the
+dashboard. This is the series to use for per-state panels, stacked state timelines,
+time-in-state, and per-state alerts.
+
+**3. Transition counter** — `btc_entry_sm_state_transitions_total{from_state, to_state}`
+(see interpretation below).
+
+Plus the diagnostic gauges: `btc_entry_sm_chop_dominance_ratio`,
+`btc_entry_sm_volatile_expansion_rise`, `btc_entry_sm_trend_spread`,
+`btc_entry_sm_recent_range_high`, `btc_entry_sm_breakout_level`,
+`btc_entry_sm_price_breakout`, `btc_entry_sm_confidence_gap`,
+`btc_entry_sm_setup_age_bars`, `btc_entry_sm_long_entry_signal`,
+`btc_entry_sm_last_run_success`, `btc_entry_sm_last_run_unix`, and the
 `btc_entry_sm_enter_long_total` counter.
+
+#### Understanding the transition counter
+
+`btc_entry_sm_state_transitions_total` is a **monotonically increasing counter**.
+Each time the state machine moves from one state to another, the counter for that
+specific edge — labeled `from_state` and `to_state` — increments by 1. For example,
+after the machine goes `CHOP_BASE → EXPANSION_ALERT`, the series
+`btc_entry_sm_state_transitions_total{from_state="CHOP_BASE", to_state="EXPANSION_ALERT"}`
+goes up by one.
+
+A few things to know when reading it:
+
+- **A series only appears after its edge first happens.** You won't see a
+  `..._transitions_total{..., to_state="LONG_ENTRY"}` series until the machine has
+  actually fired an entry at least once. That's normal for Prometheus counters.
+- **Never graph the raw counter — wrap it in `increase()` or `rate()`.** The raw
+  value only ever climbs; what you care about is *how many* transitions happened in
+  a window.
+- **Edges are the diagnostic.** Because the machine follows a fixed path, the mix of
+  edges tells you where setups die. Lots of `EXPANSION_ALERT → NEUTRAL` (setups
+  expiring) vs. few `BULLISH_CONFIRMATION → LONG_ENTRY` means the breakout/confidence
+  filter is the bottleneck; lots of `CHOP_BASE → NEUTRAL` means chop bases keep
+  breaking before an expansion spike.
+
+#### Example PromQL
+
+```promql
+# Per-state timeline (each state as its own line; 1 = active)
+btc_entry_sm_state{symbol="BTCUSDT"}
+
+# Fraction of the last 24h spent in each state (0..1)
+avg_over_time(btc_entry_sm_state{symbol="BTCUSDT"}[24h])
+
+# How many times each transition occurred in the last 7 days
+increase(btc_entry_sm_state_transitions_total{symbol="BTCUSDT"}[7d])
+
+# Setups that reached bullish confirmation this week
+increase(btc_entry_sm_state_transitions_total{symbol="BTCUSDT", to_state="BULLISH_CONFIRMATION"}[7d])
+
+# Confirmation → entry conversion vs. confirmation → expiry (why setups fail)
+increase(btc_entry_sm_state_transitions_total{from_state="BULLISH_CONFIRMATION", to_state="LONG_ENTRY"}[7d])
+increase(btc_entry_sm_state_transitions_total{from_state="BULLISH_CONFIRMATION", to_state="NEUTRAL"}[7d])
+```
 
 ---
 

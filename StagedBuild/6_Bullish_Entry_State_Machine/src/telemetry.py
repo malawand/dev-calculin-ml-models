@@ -8,7 +8,7 @@ from typing import Any
 
 from prometheus_client import Counter, Gauge, start_http_server
 
-from models import Action, SignalOutput, STATE_NUMERIC
+from models import Action, SignalOutput, STATE_NUMERIC, TradingState
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +27,22 @@ class EntryStateMachineTelemetry:
             "btc_entry_sm_state_numeric",
             "Current state machine state (0=NEUTRAL .. 6=COOLDOWN)",
             labelnames,
+        )
+        # One-hot per-state gauge: every possible state always has its own
+        # series (1 = active this cycle, 0 = inactive). This is what lets
+        # Grafana plot/stack every state, compute time-in-state, and alert
+        # per state — which the single numeric gauge above cannot do.
+        self.state_active = Gauge(
+            "btc_entry_sm_state",
+            "Per-state indicator (1=active this cycle, 0=inactive). One series per state.",
+            labelnames + ["state"],
+        )
+        # Transition counter: increments by 1 each time the emitted state
+        # changes, labeled by the edge (from_state -> to_state).
+        self.state_transitions = Counter(
+            "btc_entry_sm_state_transitions_total",
+            "State machine transitions; increments once per from_state->to_state change.",
+            labelnames + ["from_state", "to_state"],
         )
         self.chop_dominance_ratio = Gauge(
             "btc_entry_sm_chop_dominance_ratio",
@@ -89,6 +105,12 @@ class EntryStateMachineTelemetry:
             labelnames,
         )
         self._server_started = False
+        self._last_state: str | None = None
+
+        # Pre-create all per-state series at 0 so every possible state is
+        # visible in Grafana from the first scrape, even before it occurs.
+        for st in TradingState:
+            self.state_active.labels(symbol=self.symbol, state=st.value).set(0)
 
     def start(self) -> None:
         if not self.enabled or self._server_started:
@@ -106,6 +128,20 @@ class EntryStateMachineTelemetry:
         self.last_run_unix.labels(symbol=sym).set(time.time())
         self.last_run_success.labels(symbol=sym).set(1)
         self.state_numeric.labels(symbol=sym).set(STATE_NUMERIC.get(output.state, 0))
+
+        # One-hot: set the active state to 1 and every other state to 0.
+        current_state = output.state.value
+        for st in TradingState:
+            self.state_active.labels(symbol=sym, state=st.value).set(
+                1 if st == output.state else 0
+            )
+
+        # Count the transition edge whenever the emitted state changes.
+        if self._last_state is not None and self._last_state != current_state:
+            self.state_transitions.labels(
+                symbol=sym, from_state=self._last_state, to_state=current_state
+            ).inc()
+        self._last_state = current_state
         self.chop_dominance_ratio.labels(symbol=sym).set(meta.chop_dominance_ratio)
         self.volatile_expansion_rise.labels(symbol=sym).set(meta.volatile_expansion_rise)
         self.trend_spread.labels(symbol=sym).set(meta.trend_spread)
