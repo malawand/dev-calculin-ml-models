@@ -30,6 +30,7 @@ using only past data. The output is a *signal* (a feature), not a trade command.
 - [Running the pipeline](#running-the-pipeline)
 - [Design notes & known limitations](#design-notes--known-limitations)
 - [Roadmap / next steps](#roadmap--next-steps)
+- [Full training audit](#full-training-audit)
 
 ---
 
@@ -569,4 +570,16 @@ scope:
 - [ ] **Bearish / exit state machine** — mirror Stage 6 for the bullish→bearish
   reversal (trend spread crossing below `−threshold`) and wire up the reserved
   `EXIT_LONG` action.
-```
+
+---
+
+## Full training audit
+
+For a complete, self-contained technical record of how the Stage 4 model was
+trained — objective, exact label formulas, feature definitions, split date ranges,
+LightGBM hyperparameters, per-class metrics, confusion matrices, feature
+importances, and a leakage / live-readiness review — see
+[`MODEL_TRAINING_AUDIT.md`](MODEL_TRAINING_AUDIT.md).
+
+That document is written for an independent engineer or AI to audit the model and
+regenerate every figure from the committed artifacts.
