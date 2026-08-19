@@ -249,8 +249,7 @@ python count_moves.py cortex_features_with_prices.csv --hours 4 --threshold 0.5
   counting.
 
 **Reading the results:** raise `--threshold` and FLAT absorbs more rows, which shrinks
-both UP% and DOWN%. Compare each state's UP% against the `ALL` row rather than against
-50%, and check the `TOTAL` column — a state with only a handful of observations isn't
+both UP% and DOWN%. A state with only a handful of observations isn't
 telling you much, and `truth_table_cortex.py` will show you which states those are.
 
 ---
