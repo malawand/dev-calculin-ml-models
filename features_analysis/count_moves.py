@@ -7,7 +7,7 @@ For each combination, count how many times the price went UP, DOWN, or was
 FLAT over the next N hours.
 
     python count_moves.py cortex_features_with_prices.csv
-    python count_moves.py cortex_features_with_prices.csv --threshold 0.25
+    python count_moves.py cortex_features_with_prices.csv --normalize
     python count_moves.py cortex_features_with_prices.csv --hours 4 --threshold 0.5
 """
 
@@ -16,6 +16,7 @@ import sys
 from itertools import product
 
 import pandas as pd
+import numpy as np  # Added for log normalization
 
 FEATURES = ["7d_derivative", "7d_derivative_prime", "poly_transition(_weighted24h48h7d)"]
 
@@ -27,6 +28,8 @@ p.add_argument("--threshold", type=float, default=0.1,
                help="moves smaller than this %% count as FLAT")
 p.add_argument("--time-col", default="time_bucket")
 p.add_argument("--price-col", default="close_price")
+p.add_argument("--normalize", action="store_true", 
+               help="Use Logarithmic Returns to mathematically normalize extreme price variations")
 a = p.parse_args()
 
 F = a.features
@@ -49,8 +52,13 @@ ok = df[F].notna().all(axis=1)
 df["state"] = None
 df.loc[ok, "state"] = df.loc[ok, F].astype(int).astype(str).agg("".join, axis=1)
 
-# --- price change over the next N hours, in percent ---
-df["change"] = (df[a.price_col].shift(-a.hours) / df[a.price_col] - 1) * 100
+# --- price change over the next N hours ---
+if a.normalize:
+    # Log Returns: Normalizes massive swings symmetrically
+    df["change"] = np.log(df[a.price_col].shift(-a.hours) / df[a.price_col]) * 100
+else:
+    # Standard percentage change
+    df["change"] = (df[a.price_col].shift(-a.hours) / df[a.price_col] - 1) * 100
 
 # --- classify ---
 df["result"] = None
@@ -61,7 +69,8 @@ df.loc[df["change"].abs() <= a.threshold, "result"] = "FLAT"
 rows = df.dropna(subset=["state", "result"])
 
 # --- output ---
-print(f"\nLookahead: {a.hours} hours     FLAT threshold: +/-{a.threshold}%")
+mode_str = "LOG NORMALIZED" if a.normalize else "STANDARD PERCENTAGE"
+print(f"\nLookahead: {a.hours} hours      FLAT threshold: +/-{a.threshold}%      Mode: {mode_str}")
 print("Features:  " + "  ".join(f"digit{i+1}={f}" for i, f in enumerate(F)))
 print()
 print(f"{'state':<8}{'UP':>8}{'DOWN':>8}{'FLAT':>8}{'TOTAL':>9}"
