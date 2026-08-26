@@ -1,8 +1,16 @@
 # BTC Cortex Feature Pipeline
 
+**Current source of truth:** [PROJECT_PLAN.md](PROJECT_PLAN.md) (market-motion vector research).  
+**Code:** [market_motion/](market_motion/) — Vector v1 and Outcome v1. The four scripts below are the **binary baseline** (Gate 1 / Phase 1), not the trading policy.
+
+---
+
+# BTC Cortex Feature Pipeline (baseline)
+
 A four-stage pipeline that pulls binary transition features from a Cortex/Prometheus
 backend, aligns them with BTCUSDT hourly prices from ClickHouse, and measures how the
 price behaved after each feature combination.
+
 
 ---
 
@@ -144,16 +152,7 @@ No flags. The date range in the SQL and the input/output filenames are edited in
 - The merge is a **left** join on the features, so every feature row survives. Hours with
   no tick data in ClickHouse get a null `close_price` — `count_moves.py` skips those rows
   when it computes returns.
-- ⚠️ **Security:** the ClickHouse password is currently hardcoded. Before committing,
-  replace it with an environment variable:
-
-  ```python
-  import os
-  password=os.environ["CLICKHOUSE_PASSWORD"]
-  ```
-
-  and export it at runtime (`export CLICKHOUSE_PASSWORD=...`). If a real password was ever
-  committed, rotate it — removing it in a later commit does not remove it from git history.
+- **Security:** ClickHouse password is read from `CLICKHOUSE_PASSWORD`. It was previously hardcoded; **rotate that credential**. Git history still contains it.
 
 ---
 

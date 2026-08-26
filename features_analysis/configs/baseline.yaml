@@ -1,0 +1,174 @@
+asset: BTCUSDT
+sampling_frequency: 1h
+timezone: UTC
+
+period:
+  start: "2023-03-24T00:00:00Z"
+  end: "2026-08-03T00:00:00Z"
+
+cortex:
+  url_env: CORTEX_URL
+  url_default: "http://10.1.20.60:9009/prometheus/api/v1/query_range"
+  step: 1h
+  chunk_days: 180
+  max_staleness_hours: 2
+  queries:
+    7d_derivative: 'max(derivative_transitions_2{interval="7d",order="99"})'
+    7d_derivative_prime: 'max(derivative_prime_transitions_2{interval="7d_prime24h",order="99"})'
+    poly_transition_weighted24h48h7d: 'max(polynomial_transition{interval="_weighted24h48h7d",order="90"})'
+
+# Continuous Cortex D for cortex_market_motion_v1. Separate from OLS 7h.
+# There is no deriv7h; Vector v1 uses deriv8h as horizon 8h.
+cortex_motion:
+  version: cortex_market_motion_v1
+  source_query_version: cortex_continuous_d_prod_a_preferred_v1
+  step: 1h
+  chunk_days: 90
+  max_staleness_hours: 2
+  feature_available_lag_hours: 1
+  timing_certainty: uncertain_recording_rule
+  source_semantic_certainty: owner_confirmed_routing_same_feature
+  live_cluster: PROD-A-crypto-metrics
+  collapse:
+    rule: prod_a_preferred_v1
+    rtol: 1.0e-6
+    atol: 1.0e-12
+    priority:
+      - PROD-A-crypto-metrics
+      - PROD-B-crypto-metrics
+      - PROD-crypto-metrics
+      - prod-calculin-tokyo-binance-scraper
+      - prod-prom-cluster-1
+      - DEV-crypto-metrics
+      - unlabeled
+  period:
+    start: "2023-03-24T00:00:00Z"
+    end: "2026-08-19T22:00:00Z"
+  horizons:
+    2h:
+      query: 'job:crypto_last_price:deriv2h{symbol="BTCUSDT"}'
+      horizon_hours: 2
+    4h:
+      query: 'job:crypto_last_price:deriv4h{symbol="BTCUSDT"}'
+      horizon_hours: 4
+    8h:
+      query: 'job:crypto_last_price:deriv8h{symbol="BTCUSDT"}'
+      horizon_hours: 8
+    12h:
+      query: 'job:crypto_last_price:deriv12h{symbol="BTCUSDT"}'
+      horizon_hours: 12
+    24h:
+      query: 'job:crypto_last_price:deriv24h{symbol="BTCUSDT"}'
+      horizon_hours: 24
+    48h:
+      query: 'job:crypto_last_price:deriv48h{symbol="BTCUSDT"}'
+      horizon_hours: 48
+    7d:
+      query: 'job:crypto_last_price:deriv7d{symbol="BTCUSDT"}'
+      horizon_hours: 168
+  research_only_queries:
+    deriv7d_prime24h: 'job:crypto_last_price:deriv7d_prime24h{symbol="BTCUSDT"}'
+    deriv7d_prime7d: 'job:crypto_last_price:deriv7d_prime7d{symbol="BTCUSDT"}'
+    weighted_deriv_24h_48h_7d: 'job:crypto_last_price:weighted_deriv:24h:48h:7d{symbol="BTCUSDT"}'
+
+clickhouse:
+  host_env: CLICKHOUSE_HOST
+  host_default: "10.1.19.249"
+  port_env: CLICKHOUSE_PORT
+  port_default: 8124
+  user_env: CLICKHOUSE_USER
+  user_default: exporter
+  password_env: CLICKHOUSE_PASSWORD
+  table_env: CLICKHOUSE_TABLE
+  table_default: binance_ww.raw_ticks_binance
+  symbol: BTCUSDT
+
+baseline:
+  version: cortex_transition_baseline_v1
+  feature_columns:
+    - 7d_derivative
+    - 7d_derivative_prime
+    - poly_transition_weighted24h48h7d
+  hours: 24
+  flat_threshold_pct: 0.1
+  log_return: false
+
+timing:
+  # Close at t is known only after the bar ends. Do not fill at t.
+  feature_available_lag_hours: 1
+  decision_latency_hours: 0
+
+vector:
+  # Three labeled artifacts, never mixed:
+  #   cortex_transition_baseline_v1 — binary Cortex 0/1 (Phase 1)
+  #   price_ols_proxy_v1            — OLS on log close (momentum proxy; this engine)
+  #   cortex_market_motion_v1       — continuous Cortex D (8h, not 7h; separate engine)
+  # OLS is never a fallback for missing Cortex derivatives.
+  source: price_ols_proxy
+  version: price_ols_proxy_v1
+  use_log_price: true
+  z_window_hours: 2160
+  z_min_obs: 168
+  z_clip: 8.0
+  velocity_delta_hours: 1
+  min_ols_bars_for_slope: 3
+  min_ols_bars_for_va: 8
+  # Confirm a candidate extremum at t = candidate + delay, using data through t only.
+  # delay=2 matches the 2:00 peak / 4:00 confirmation example. Never backdate state.
+  confirmation_delay_hours: 2
+  # Canonical T is always a confirmed peak/trough of D, not of V.
+  # v2: ignore wiggles smaller than k * trailing MAD(ΔD), and require
+  # min_duration = max(delay, floor(horizon_bars * fraction)) between opposite turns.
+  # Timestamp rule (confirm at t, never backdate) is frozen; this detector is versioned.
+  min_prominence_mad: 1.0
+  min_duration_horizon_fraction: 0.25
+  prominence_mad_window_hours: 168
+  prominence_mad_min_obs: 24
+  detector: causal_d_extrema
+  execution_lag_hours: 1
+  staleness_hours:
+    crypto_last_price: 2
+    cortex_transition: 2
+    cortex_d: 2
+  horizons:
+    2h: 3
+    4h: 4
+    7h: 7
+    12h: 12
+    24h: 24
+    48h: 48
+    7d: 168
+
+outcomes:
+  version: btc_outcomes_v1
+  return_horizons_h: [1, 2, 4, 8, 12, 24, 48]
+  excursion_horizons_h: [4, 12, 24, 48]
+  flat_threshold_pct: 0.1
+  round_trip_cost_pct: 0.04
+  path_convention: hourly_close
+
+target_freeze:
+  status: approved
+  approved_on: "2026-08-24"
+  primary_outcome: return_24h
+  primary_score: crps_vs_fold_unconditional
+  secondary_outcome: p_return_24h_gt_round_trip_cost
+  secondary_score: brier_plus_calibration
+  supporting:
+    - median_return
+    - quantiles
+    - close_path_mfe
+    - close_path_mae
+    - effective_analogue_support
+
+analogue:
+  version: mixed_l1_equal_weight_poc_v1
+  k: 40
+  min_neighbors: 12
+  min_effective_support: 8
+  min_separation_hours: 24
+  entry_lag_hours: 1
+  outcome_horizon_hours: 24
+  bootstrap_draws: 400
+  n_stride_queries: 48
+  # Development only: 2023-11-01 through 2026-01-14. Holdouts stay closed.

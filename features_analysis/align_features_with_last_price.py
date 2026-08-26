@@ -1,17 +1,25 @@
-import pandas as pd
+import os
+
 import clickhouse_connect
+import pandas as pd
 
 # ---------------------------------------------------------
 # 1. Fetch Price Data from ClickHouse
 # ---------------------------------------------------------
 print("Connecting to ClickHouse...")
 
-# Replace with your actual ClickHouse credentials
+password = os.environ.get("CLICKHOUSE_PASSWORD")
+if not password:
+    raise SystemExit(
+        "CLICKHOUSE_PASSWORD is not set. Copy features_analysis/.env.example "
+        "and export the password. Do not hardcode it."
+    )
+
 client = clickhouse_connect.get_client(
-    host='10.1.19.249', # or your database IP/URL
-    username='exporter', 
-    password='savqi9-mewces-nAcjod!-11',
-    port=8124 
+    host=os.environ.get("CLICKHOUSE_HOST", "10.1.19.249"),
+    username=os.environ.get("CLICKHOUSE_USER", "exporter"),
+    password=password,
+    port=int(os.environ.get("CLICKHOUSE_PORT", "8124")),
 )
 
 # Note: The end date was updated to 2026-08-08 to match your Cortex data

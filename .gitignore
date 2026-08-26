@@ -13,10 +13,20 @@
 # ============================================================================
 # DATA FILES (Can be large, regenerate from source)
 # ============================================================================
+# Data files
 *.parquet
 *.csv
 *.json.gz
 *.feather
+
+# Market-motion research tests (global test_*.py ignore would skip them)
+!features_analysis/market_motion/tests/
+!features_analysis/market_motion/tests/**
+
+# Generated research runs
+features_analysis/artifacts/
+features_analysis/.env
+
 combined_signals_log.csv
 historical_data/
 data/
@@ -107,6 +117,11 @@ archive/
 test_*.py
 debug_*.py
 scratch_*.py
+
+# Keep market-motion tests after the global test_*.py ignore.
+!features_analysis/market_motion/tests/
+!features_analysis/market_motion/tests/**
+features_analysis/market_motion/tests/__pycache__/
 
 # ============================================================================
 # IDE / EDITOR FILES
